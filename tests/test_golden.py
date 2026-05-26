@@ -77,9 +77,9 @@ def _process(experiment):
         experiment,
         raw_dir=RAW_DIR / f"{experiment}_Raw Trial Data",
         background_dir=BG_DIR,
-        experiment_list=REPO / "config" / "experiment_list.csv",
-        targets_path=REPO / "config" / "targets" / f"{experiment}_targets.csv",
-        mouse_map_path=REPO / "config" / "mouse_map.csv",
+        experiment_list=REPO / "3_config" / "experiment_list.csv",
+        targets_path=REPO / "3_config" / "targets" / f"{experiment}_targets.csv",
+        mouse_map_path=REPO / "3_config" / "mouse_map.csv",
     )
 
 

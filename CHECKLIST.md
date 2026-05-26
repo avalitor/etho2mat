@@ -12,8 +12,8 @@ will not block the pipeline — some it will warn about — and the final say is
 - [ ] Experiment is named as its start date, `YYYY-MM-DD`. No other experiment should share the same date. 
 - [ ] In Ethovision, check each trial's nose point tracks correctly and sits on the target before export & trials follow the naming convention (see Trial Naming and Numbering). 
 - [ ] In Ethovision, get the target coordinates per entrance. 
-- [ ] Export Excel files for every trial from Ethovision, placed in your raw-data folder.
-- [ ] Take an arena snapshot from a trial video and place it in your background-image folder.
+- [ ] Export Excel files for every trial from Ethovision, placed in the `1_raw/` folder.
+- [ ] Take an arena snapshot from a trial video and place it in the `2_background_images/` folder.
 - [ ] Know the sex of every mouse, and strain/condition if relevant (each listed per mouse if they vary within the experiment).
 - [ ] Prepare to write a description that notes the experiment setup, any target shifts, and any special      trial conditions.
 
@@ -62,7 +62,7 @@ Essential:
 
 
 ## 2. Arena screenshot
-- Open a trial video in VLC, scroll to when the arena is clear, and take a snapshot using `Video --> Take Snapshot`. The image should be saved in your Pictures folder. Rename the image with the experiment name and place it in the background-image folder.
+- Open a trial video in VLC, scroll to when the arena is clear, and take a snapshot using `Video --> Take Snapshot`. The image should be saved in your Pictures folder. Rename the image with the experiment name and place it in the `2_background_images/` folder.
 - Pick a video near the **middle** of the experiment, preferably the Probe; the arena can drift slightly as the experiment runs if you accidentally bumped it. 
 - Arena clear, fully in frame, evenly lit. Nothing else in the arena — no wires, mice, or objects; these can be counted as extra holes.
 - All holes empty and visible; a food-filled hole can be missed.
@@ -79,8 +79,8 @@ Free text in `experiment_list.csv`. Include:
 - The protocol setup.
 - When shifts occur — e.g. the target changes after trial 20, or a probe runs after trial 30.
 - Special trial conditions — opto, lights out, barriers — and a brief note on any specially-named trials.
-- Mouse sex: goes in its own column; for a mixed-sex experiment, list each mouse. 
-- Mouse strain/condition (e.g. `WT`, `ATRX-KO`): (optional), leave the column blank if not relevant, set it experiment-wide if all mice share a strain, or list it per mouse if it varies (WT vs KO).
+- Mouse sex: goes in its own column. Set `mouse_sex = mixed` if the cohort has both sexes, then add one row per mouse to `3_config/mouse_map.csv` (REQUIRED whenever sex is `mixed`).
+- Mouse strain/condition (e.g. `WT`, `ATRX-KO`): (optional), leave the column blank if not relevant, set it experiment-wide if all mice share a strain, or per-mouse overrides go in `3_config/mouse_map.csv` if it varies (WT vs KO).
 
 
 CSVs open in Excel, Numbers, or LibreOffice, which may automatically reformat entries (dates, leading

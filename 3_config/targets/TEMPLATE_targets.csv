@@ -1,0 +1,19 @@
+entrance,target_x,target_y,trials,mice,role
+"# Reward targets for experiment <DATE>. Rename to <DATE>_targets.csv before use."
+"# entrance: NW / NE / SW / SE. Room directions; must match what Ethovision recorded."
+"# target_x, target_y: target coordinates in cm (2 decimals). Never (0, 0)."
+"# trials: which trials use this row. Examples below."
+"#   all                        every trial"
+"#   1-20    or  1..20          numeric range. Use '..' if Excel turns '1-20' into a date."
+"#   1,2,5                      explicit list"
+"#   Probe                      exact name (won't catch Probe2)"
+"#   Probe*                     prefix tag (catches Probe, Probe2, Probe3, ...)"
+"#   remaining                  every trial not claimed by other rows of the same entrance"
+"#   !1-20, !Probe*             negation: every trial EXCEPT 1-20 and EXCEPT Probe*"
+"#   1-30, !25                  combine: digit trials 1-30 except trial 25"
+"# mice: blank = all mice. Or list IDs (e.g. 54,55) when the target differs by mouse."
+"# role: reward (default) or reverse (the rotated / previous target)."
+"# Multiple reward rows matching one trial = that trial has multiple targets (K x 2)."
+NW,-13.33,38.69,1-20,,reward
+NW,17.97,-22.46,"21-29, Probe2",,reward
+NW,-13.33,38.69,"21-29, Probe2",,reverse

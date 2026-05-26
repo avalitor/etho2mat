@@ -24,10 +24,12 @@ def _resolve(env_var: str, default: Path) -> Path:
 
 
 # --- The four data folders (override via the matching env var if needed) ---
-RAW_DIR = _resolve("ETHO2MAT_RAW", ROOT_DIR / "raw")
-BACKGROUND_DIR = _resolve("ETHO2MAT_BACKGROUNDS", ROOT_DIR / "background_images")
+# User-facing folders are numbered so they stand out in Explorer; `output/` stays
+# unnumbered because the tool writes to it (the user doesn't drop data in).
+RAW_DIR = _resolve("ETHO2MAT_RAW", ROOT_DIR / "1_raw")
+BACKGROUND_DIR = _resolve("ETHO2MAT_BACKGROUNDS", ROOT_DIR / "2_background_images")
 OUTPUT_DIR = _resolve("ETHO2MAT_OUTPUT", ROOT_DIR / "output")
-CONFIG_DIR = _resolve("ETHO2MAT_CONFIG", ROOT_DIR / "config")
+CONFIG_DIR = _resolve("ETHO2MAT_CONFIG", ROOT_DIR / "3_config")
 
 # --- Derived locations ---
 TARGETS_DIR = CONFIG_DIR / "targets"

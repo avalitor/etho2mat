@@ -21,11 +21,12 @@ That makes an environment called `traj` with everything the tool needs. The laun
 ## Quickstart (onboarding one experiment)
 
 1. **Read `CHECKLIST.md`** and prepare what it lists. Items marked *(enforced)* will stop the run if wrong; the rest only warn.
-2. **Export** every trial to Excel from Ethovision into `raw/<DATE>_Raw Trial Data/` (the folder name must start with the experiment's start date, e.g. `2025-01-21_Raw Trial Data`).
-3. **Arena screenshot:** put one clean arena image in `background_images/`.
-4. **Write a new row** to `config/experiment_list.csv` (double-click to edit; **save as CSV**).
-5. **Target coordinates:** copy `config/targets/TEMPLATE_targets.csv` to `config/targets/<DATE>_targets.csv` and fill in the reward rows.
-6. **Run** by double-clicking `run_conversion.bat` (Windows) or `run_conversion.command` (Mac). You can also run `python -m src.convert <DATE>` in the `traj` environment.
+2. **Export** every trial to Excel from Ethovision into `1_raw/<DATE>_Raw Trial Data/` (the folder name must start with the experiment's start date, e.g. `2025-01-21_Raw Trial Data`).
+3. **Arena screenshot:** put one clean arena image in `2_background_images/`.
+4. **Write a new row** to `3_config/experiment_list.csv` (double-click to edit; **save as CSV**).
+5. **Target coordinates:** copy `3_config/targets/TEMPLATE_targets.csv` to `3_config/targets/<DATE>_targets.csv` and fill in the reward rows.
+6. **Mouse map (only if needed):** open `3_config/mouse_map.csv` only when (a) `mouse_sex = mixed` in `experiment_list.csv` — per-mouse rows are then REQUIRED — or (b) different mice in this experiment have different strains/conditions you want recorded. Otherwise leave it alone.
+7. **Run** by double-clicking `run_conversion.bat` (Windows) or `run_conversion.command` (Mac). You can also run `python -m src.convert <DATE>` in the `traj` environment.
 
 The experiment id is always the **start date** `YYYY-MM-DD`, and it should match across the raw folder, `experiment_list.csv`, and `targets/<DATE>_targets.csv`.
 
@@ -48,7 +49,7 @@ The tool prints, and writes to `output/flagged_trials.csv`, every **reward-expec
 - A gross miss (tens of cm) is a real miss, a target swap, or — if widespread — misalignment.
 - `suspected_nose_tail_swap = True` means the **tail** reached the target but the nose did not; Ethovision likely swapped them. Re-export that trial with the nose tracking corrected.
 
-Habituation and probe trials have no reward, so they are **exempt** from these alarms (configurable per experiment via `no_reward_patterns`; default `Habituation*, Probe*`).
+Habituation and probe trials have no reward, so they are **exempt** from these alarms (configurable per experiment via the `no_reward_trials` column in `experiment_list.csv`; default `Habituation*, Probe*`).
 
 A high or one-entrance-wide miss rate is reported as a **likely alignment problem** — recheck the alignment image before trusting the output.
 
@@ -62,8 +63,8 @@ If detection fails, fix the video screenshot. A clear, evenly-lit, fully-in-fram
 
 ## Where things go
 
-- Inputs: `raw/` (Excel), `background_images/` (screenshots).
-- Outputs: `output/<DATE>/hfm_<DATE>_M<mouse>_<trial>.mat`, plus `output/verification/` images and `output/flagged_trials.csv`. The contents of `raw/`, `background_images/`, and `output/` are git-ignored — data is never committed.
+- Inputs: `1_raw/` (Excel), `2_background_images/` (screenshots), `3_config/` (CSVs you edit).
+- Outputs: `output/<DATE>/hfm_<DATE>_M<mouse>_<trial>.mat`, plus `output/verification/` images and `output/flagged_trials.csv`. The contents of `1_raw/`, `2_background_images/`, and `output/` are git-ignored — data is never committed.
 - To send `.mat` straight to another directory, repoint `OUTPUT_DIR` in `src/paths.py` (the place paths are defined).
 
 Re-processing an experiment refuses to overwrite by default; re-run with `--force` to overwrite.

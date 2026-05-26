@@ -56,7 +56,7 @@ class ExperimentConfig:
     experimenter: str
     background_image: str
     expected_hole_count: int
-    no_reward_patterns: tuple
+    no_reward_trials: tuple
 
 
 # --------------------------------------------------------------------------- #
@@ -68,24 +68,49 @@ def _token_matches(token: str, trial: str) -> bool:
         return False
     if token.endswith("*"):                      # prefix tag, e.g. R* / Probe*
         return trial.startswith(token[:-1])
-    if "-" in token:                             # numeric range N-M
-        lo, hi = token.split("-", 1)
-        lo, hi = lo.strip(), hi.strip()
-        if lo.isdigit() and hi.isdigit():
-            return trial.isdigit() and int(lo) <= int(trial) <= int(hi)
+    for sep in ("..", "-"):                      # numeric range N-M or N..M (Excel-safe)
+        if sep in token:
+            lo, hi = token.split(sep, 1)
+            lo, hi = lo.strip(), hi.strip()
+            if lo.isdigit() and hi.isdigit():
+                return trial.isdigit() and int(lo) <= int(trial) <= int(hi)
+            break                                 # contains separator but isn't a numeric range
     if token.isdigit():                          # single numeric trial
         return trial.isdigit() and int(trial) == int(token)
     return trial == token                        # exact name match
 
 
 def _selector_matches(selector: str, trial: str) -> bool:
-    """Whether ``trial`` matches ``selector`` (``remaining`` handled by caller)."""
+    """Whether ``trial`` matches ``selector`` (``remaining`` handled by caller).
+
+    Supports ``!`` negation: tokens prefixed with ``!`` exclude trials. The selector
+    matches T iff (no negative token matches T) AND (some positive token matches T,
+    OR there are no positive tokens at all). Examples:
+      ``!1-20, !Probe*``        -- every trial except 1-20 and except Probe*
+      ``1-30, !25``             -- digit trials 1-30 except trial 25
+      ``all, !Probe``           -- every trial except exactly 'Probe'
+    """
     selector = selector.strip()
     if selector == "all":
         return True
     if selector == "remaining":
         return False
-    return any(_token_matches(tok, trial) for tok in selector.split(","))
+    positive, negative = [], []
+    for raw in selector.split(","):
+        tok = raw.strip()
+        if not tok:
+            continue
+        if tok.startswith("!"):
+            negative.append(tok[1:].strip())
+        else:
+            positive.append(tok)
+    if any(_token_matches(n, trial) for n in negative):
+        return False
+    if not positive:
+        return bool(negative)        # `!X, !Y` with no positives = all-minus-negatives
+    if "all" in positive:
+        return True
+    return any(_token_matches(p, trial) for p in positive)
 
 
 def _mice_scope_includes(rule: TargetRule, mouse: str) -> bool:
@@ -190,7 +215,7 @@ def load_experiment(experiment: str, path: Optional[Path] = None) -> ExperimentC
             raise ConfigError(f"{experiment}: expected_hole_count must be a positive integer; got '{hole_raw}'.")
         hole_count = int(hole_raw)
 
-    patterns_raw = (r.get("no_reward_patterns") or "").strip()
+    patterns_raw = (r.get("no_reward_trials") or "").strip()
     patterns = tuple(p.strip() for p in patterns_raw.split(",") if p.strip()) if patterns_raw \
         else DEFAULT_NO_REWARD_PATTERNS
 
@@ -204,7 +229,7 @@ def load_experiment(experiment: str, path: Optional[Path] = None) -> ExperimentC
         experimenter=(r.get("experimenter") or "").strip(),
         background_image=(r.get("background_image") or "").strip(),
         expected_hole_count=hole_count,
-        no_reward_patterns=patterns,
+        no_reward_trials=patterns,
     )
 
 
@@ -270,6 +295,8 @@ def load_mouse_map(path: Optional[Path] = None) -> dict:
         for row in csv.DictReader(fh):
             exp = (row.get("experiment") or "").strip()
             mouse = (row.get("mouse_id") or "").strip()
+            if exp.startswith("#"):          # column-A quoted comment line; skip
+                continue
             if not exp or not mouse:
                 continue
             out[(exp, mouse)] = {

@@ -21,6 +21,8 @@ from src.validate import ConfigError  # noqa: E402
     ("1-20", "20", True),
     ("1-20", "21", False),
     ("1-20", "Probe", False),
+    ("1..20", "20", True),               # `..` range (Excel-safe alternative to `-`)
+    ("1..20", "21", False),
     ("1,2,5", "5", True),
     ("1,2,5", "3", False),
     ("Probe", "Probe", True),
@@ -30,6 +32,14 @@ from src.validate import ConfigError  # noqa: E402
     ("habit*", "habit3", True),
     ("31-99, probe2, habit*", "probe2", True),
     ("remaining", "anything", False),    # 'remaining' is handled by the resolver
+    # `!` negation
+    ("!1-20, !Probe*", "25", True),      # outside both negatives -> match
+    ("!1-20, !Probe*", "5", False),      # inside the !1-20 negative -> no match
+    ("!1-20, !Probe*", "Probe3", False), # caught by the !Probe* negative
+    ("1-30, !25", "20", True),           # positive matches, negative doesn't
+    ("1-30, !25", "25", False),          # positive matches but negative wins
+    ("all, !Probe", "Probe", False),     # `all` minus exact `Probe`
+    ("all, !Probe", "Probe2", True),     # `Probe` exact doesn't catch Probe2
 ])
 def test_selector_matches(selector, trial, expected):
     assert c._selector_matches(selector, trial) is expected

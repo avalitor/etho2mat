@@ -34,7 +34,7 @@ class TrialReach:
 
 def evaluate(result) -> list:
     """Closest nose-to-target approach + reach status for every trial."""
-    patterns = result.cfg.no_reward_patterns
+    patterns = result.cfg.no_reward_trials
     out = []
     for rec in result.records:
         no_reward = is_no_reward_trial(rec.trial, patterns)
@@ -73,7 +73,7 @@ def print_report(reaches: list, result) -> None:
 
     print(f"\n--- Reach report for {result.experiment} ---")
     print(f"  reward-expecting trials: {len(expecting)}  |  reached: {len(expecting) - len(missed)}  |  missed: {len(missed)}")
-    print(f"  no-reward trials (exempt, e.g. {', '.join(result.cfg.no_reward_patterns)}): {len(no_reward)}")
+    print(f"  no-reward trials (exempt, e.g. {', '.join(result.cfg.no_reward_trials)}): {len(no_reward)}")
 
     # Misalignment pre-screen: a misaligned arena makes nearly all reward trials miss.
     if expecting and len(missed) / len(expecting) > 0.5:
@@ -136,7 +136,7 @@ def trial_naming_warnings(result) -> None:
         seen.add(t)
         if t[0].islower():
             warn(f"trial '{t}' starts lowercase -- convention is capitalized "
-                 f"(e.g. 'Probe', not 'probe'). Proceeding.")
+                 f"(e.g. 'Probe', not 'probe'). Ignore if intentional; proceeding.")
         elif _LETTERS_THEN_DIGITS.match(t) and not (t.startswith("R") and t[1:].isdigit()):
             warn(f"trial '{t}' joins letters and digits with no space -- convention "
-                 f"is 'Probe 2' / 'Habituation 1'. Proceeding.")
+                 f"is 'Probe 2' / 'Habituation 1'. Ignore if intentional; proceeding.")

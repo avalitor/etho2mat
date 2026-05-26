@@ -4,6 +4,10 @@ This is what the double-clickable launcher runs. Nothing is written to disk unti
 BOTH the arena geometry and the target alignment are confirmed. On either 'n',
 the run aborts and writes nothing.
 
+If a step raises a known error (missing file, malformed CSV, etc.) the tool prints
+the error and offers a per-step retry: fix the file outside, press Enter, and that
+step alone re-runs -- the user doesn't lose progress from earlier steps.
+
     python -m src.convert <experiment> [--force] [--yes]
 """
 
@@ -22,11 +26,59 @@ from .schema import to_matdict
 from .validate import Etho2matError, InputError
 
 
+_QUIT = object()                       # sentinel returned by _step_with_retry on user quit
+
+
 def _confirm(prompt: str, assume_yes: bool) -> bool:
     if assume_yes:
         print(f"{prompt} [auto-yes]")
         return True
     return input(f"{prompt} [y/n] ").strip().lower().startswith("y")
+
+
+def _step_with_retry(name: str, fn, assume_yes: bool):
+    """Run ``fn``; on a known error, let the user fix the underlying issue and retry.
+
+    Returns whatever ``fn`` returns, or ``_QUIT`` if the user typed 'q'.
+    With ``assume_yes`` (non-interactive), errors propagate.
+    """
+    while True:
+        try:
+            return fn()
+        except Etho2matError as exc:
+            print(f"\nERROR during {name}: {exc}", file=sys.stderr)
+            if assume_yes:
+                raise
+            ans = input("\nFix the issue, then press Enter to retry, or 'q' + Enter to quit: ").strip().lower()
+            if ans == "q":
+                return _QUIT
+
+
+def _step1_with_retry(fn, current_experiment: list, assume_yes: bool):
+    """Like ``_step_with_retry`` but also lets the user re-enter the experiment id.
+
+    The most common step-1 failure is a typo in the experiment id (no matching
+    folder or no row in experiment_list.csv). Plain retry with the same id would
+    loop forever, so this prompt also accepts a fresh experiment id which is
+    written back into ``current_experiment`` for the next attempt.
+    """
+    while True:
+        try:
+            return fn()
+        except Etho2matError as exc:
+            print(f"\nERROR during loading config and detecting arena: {exc}", file=sys.stderr)
+            if assume_yes:
+                raise
+            print(
+                f"\nFix the issue and press Enter to retry,"
+                f"\nOR type a different experiment id (current: '{current_experiment[0]}'),"
+                f"\nOR type 'q' to quit."
+            )
+            ans = input("> ").strip()
+            if ans.lower() == "q":
+                return _QUIT
+            if ans:
+                current_experiment[0] = ans
 
 
 def _resolve_background(cfg) -> Path:
@@ -55,45 +107,85 @@ def _write_records(records, force: bool) -> Path:
 
 
 def run(experiment: str, force: bool = False, assume_yes: bool = False) -> int:
-    cfg = config_io.load_experiment(experiment)
-    rules = config_io.load_targets(experiment)
-    mouse_map = config_io.load_mouse_map()
-    background = _resolve_background(cfg)
-    raw_dir = paths.raw_experiment_dir(experiment)
+    # Step 1 may be retried after the user re-enters the experiment id (typo recovery),
+    # so the closure reads from this mutable container instead of the outer parameter.
+    current_experiment = [experiment]
 
-    # 1) Arena geometry -> verification image -> confirm
-    print(f"Detecting arena geometry for {experiment} from {cfg.background_image} ...")
-    arena = compute_arena(cfg, background)
-    img_path = save_verification_image(
-        background, arena, cfg.img_extent, paths.VERIFICATION_DIR / f"{experiment}_arena.png"
-    )
-    print(f"  Saved arena verification image: {img_path}")
+    # --- Step 1: load config + detect arena + save verification image (retryable). ---
+    def step1():
+        exp = current_experiment[0]
+        cfg = config_io.load_experiment(exp)
+        rules = config_io.load_targets(exp)
+        mouse_map = config_io.load_mouse_map()
+        background = _resolve_background(cfg)
+        raw_dir = paths.raw_experiment_dir(exp)
+        print(f"Detecting arena geometry for {exp} from {cfg.background_image} ...")
+        arena = compute_arena(cfg, background)
+        img_path = save_verification_image(
+            background, arena, cfg.img_extent, paths.VERIFICATION_DIR / f"{exp}_arena.png"
+        )
+        print(f"  Saved arena verification image: {img_path}")
+        return cfg, rules, mouse_map, background, raw_dir, arena
+
+    out = _step1_with_retry(step1, current_experiment, assume_yes)
+    if out is _QUIT:
+        return 1
+    cfg, rules, mouse_map, background, raw_dir, arena = out
+    experiment = current_experiment[0]   # sync outer name with whatever step1 accepted
+
+    # --- Arena y/n confirmation. ---
     if not _confirm(f"1 arena and {arena.n_holes} holes -- looks right?", assume_yes):
         print("Aborted at arena check. Nothing written.")
         return 2
 
-    # 2) Assemble records (needs arena), run reach pre-screen + alignment figure -> confirm
-    excel_paths = process.iter_excel_paths(raw_dir)
-    records = [process.build_record(cfg, rules, mouse_map, p, arena) for p in excel_paths]
-    process._check_filename_collisions(records)
+    # --- Step 2: read every Excel + build records + collision check (retryable). ---
+    def step2():
+        excel_paths = process.iter_excel_paths(raw_dir)
+        print(f"\nReading {len(excel_paths)} trials ...")
+        recs = []
+        for i, p in enumerate(excel_paths, 1):
+            print(f"  [{i}/{len(excel_paths)}] {p.name}")
+            recs.append(process.build_record(cfg, rules, mouse_map, p, arena))
+        process._check_filename_collisions(recs)
+        return recs
+
+    out = _step_with_retry("reading Excel files", step2, assume_yes)
+    if out is _QUIT:
+        return 1
+    records = out
     result = ProcessResult(experiment, cfg, rules, arena, records, background)
 
+    # --- Reach report + warnings (non-fatal; print and continue). ---
     reaches = report.evaluate(result)
     report.trial_numbering_warnings(result)
     report.trial_naming_warnings(result)
     report.print_report(reaches, result)
     report.write_flagged_csv(reaches, paths.FLAGGED_TRIALS_CSV)
 
-    fig_path = alignment.build_alignment_figure(
-        result, paths.VERIFICATION_DIR / f"{experiment}_alignment.png"
-    )
-    print(f"\n  Saved target-alignment image: {fig_path}")
+    # --- Step 3: build alignment figure (retryable). ---
+    def step3():
+        print("\nBuilding alignment figure ...")
+        return alignment.build_alignment_figure(
+            result, paths.VERIFICATION_DIR / f"{experiment}_alignment.png"
+        )
+
+    fig_path = _step_with_retry("building alignment figure", step3, assume_yes)
+    if fig_path is _QUIT:
+        return 1
+    print(f"  Saved target-alignment image: {fig_path}")
+
+    # --- Alignment y/n confirmation. ---
     if not _confirm("paths reach the marked targets and start from the labelled entrances?", assume_yes):
         print("Aborted at alignment check. Nothing written.")
         return 2
 
-    # 3) Write
-    out_dir = _write_records(records, force)
+    # --- Step 4: write .mat files (retryable; existing files without --force trigger here). ---
+    def step4():
+        return _write_records(records, force)
+
+    out_dir = _step_with_retry("writing .mat files", step4, assume_yes)
+    if out_dir is _QUIT:
+        return 1
     print(f"\nWrote {len(records)} .mat files to {out_dir}")
     return 0
 
@@ -107,6 +199,7 @@ def main(argv=None) -> int:
     try:
         return run(args.experiment, force=args.force, assume_yes=args.yes)
     except Etho2matError as exc:
+        # Reached only with --yes (the per-step retry doesn't engage in non-interactive runs).
         print(f"\nERROR: {exc}", file=sys.stderr)
         return 1
 

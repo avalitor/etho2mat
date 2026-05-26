@@ -1,0 +1,13 @@
+experiment,mouse_id,sex,strain
+"# Open this file ONLY when:"
+"#   (a) experiment_list.csv has mouse_sex = mixed -- per-mouse rows are then REQUIRED,"
+"#   (b) different mice within one experiment have different strains/conditions."
+"# Otherwise leave it as the bare header below; the experiment-wide values from"
+"# experiment_list.csv apply to every mouse."
+"# experiment + mouse_id are the join key. sex: male/female. strain: free text (e.g. WT, ATRX-KO)."
+2025-07-17,54,male,
+2025-07-17,55,male,
+2025-07-17,56,male,
+2025-07-17,57,male,
+2025-07-17,58,female,
+2025-07-17,59,female,

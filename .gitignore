@@ -1,13 +1,14 @@
 # --- Reference / build-time material: not committed ---
+/_reference/
 /BUILD_SPEC.md
 
 # --- Data folders: contents git-ignored, folders kept via .gitkeep ---
 # Leading slash anchors these patterns to the repo root so tests/fixtures/raw
 # (the committed golden-test inputs) is NOT accidentally ignored.
-/raw/*
-!/raw/.gitkeep
-/background_images/*
-!/background_images/.gitkeep
+/1_raw/*
+!/1_raw/.gitkeep
+/2_background_images/*
+!/2_background_images/.gitkeep
 /output/*
 !/output/.gitkeep
 

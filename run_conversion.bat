@@ -1,8 +1,9 @@
 @echo off
 REM Double-click to run the guided conversion (Windows).
-REM Activates the `traj` conda environment, then runs the tool. Searches common
-REM Miniconda / Anaconda install paths so this works on a default install where
-REM `conda` is NOT on PATH.
+REM Activates the `traj` conda environment once, then loops on the experiment-id
+REM prompt so you can process several experiments without re-activating. Searches
+REM the standard Miniconda / Anaconda install paths so this works on a default
+REM install where `conda` is NOT on PATH.
 setlocal
 cd /d "%~dp0"
 
@@ -16,11 +17,13 @@ if errorlevel 1 (
   exit /b 1
 )
 
+:MAIN
 set /p EXPERIMENT="Enter the experiment id (start date, e.g. 2025-01-21): "
 python -m src.convert "%EXPERIMENT%" %*
-
 echo.
-pause
+set /p AGAIN="Process another experiment? [y/n] "
+if /i "%AGAIN%"=="y" goto MAIN
+
 exit /b 0
 
 

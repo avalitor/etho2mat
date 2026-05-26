@@ -1,0 +1,14 @@
+entrance,target_x,target_y,trials,mice,role
+# Reward targets for experiment 2024-11-09.,,,,,
+# entrance: NW / NE / SW / SE. Room directions; must match what Ethovision recorded.,,,,,
+"# target_x, target_y: target coordinates in cm. Never (0, 0).",,,,,
+"# trials: which trials use this row. Examples: all ; 1-20 ; 1,2,5 ; remaining ; Probe ; R*",,,,,
+"# mice: blank = all mice. Or list IDs (e.g. 54,55) when the target differs by mouse.",,,,,
+# role: reward (default) or reverse (the rotated / previous target).,,,,,
+# Multiple reward rows matching one trial = that trial has multiple targets (K x 2).,,,,,
+NE,37.68,13.33,"1-20, Probe, Habituation*",,reward
+NW,-13.33,38.84,"1-20, Probe, Habituation*",,reward
+NE,-22.75,-18.41,remaining,,reward
+NW,17.97,-21.74,remaining,,reward
+NE,37.68,13.33,"21-31, Tape*, Dark*",,reverse
+NW,-13.33,38.84,"21-31, Tape*, Dark*",,reverse
