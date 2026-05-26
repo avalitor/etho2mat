@@ -1,0 +1,44 @@
+@echo off
+REM Double-click to run the guided conversion (Windows).
+REM Activates the `traj` conda environment, then runs the tool. Searches common
+REM Miniconda / Anaconda install paths so this works on a default install where
+REM `conda` is NOT on PATH.
+setlocal
+cd /d "%~dp0"
+
+call :ACTIVATE
+if errorlevel 1 (
+  echo.
+  echo Could not activate the 'traj' conda environment.
+  echo One-time setup:  conda env create -f environment.yml
+  echo.
+  pause
+  exit /b 1
+)
+
+set /p EXPERIMENT="Enter the experiment id (start date, e.g. 2025-01-21): "
+python -m src.convert "%EXPERIMENT%" %*
+
+echo.
+pause
+exit /b 0
+
+
+:ACTIVATE
+REM Try a PATH-resident conda first (works if `conda init` was run).
+where conda >nul 2>&1 && call conda activate traj 2>nul && exit /b 0
+
+REM Otherwise search the standard install paths for Scripts\activate.bat.
+for %%P in (
+    "%USERPROFILE%\miniconda3"
+    "%USERPROFILE%\anaconda3"
+    "%LOCALAPPDATA%\miniconda3"
+    "%LOCALAPPDATA%\anaconda3"
+    "C:\ProgramData\miniconda3"
+    "C:\ProgramData\anaconda3"
+) do (
+    if exist "%%~P\Scripts\activate.bat" (
+        call "%%~P\Scripts\activate.bat" traj 2>nul && exit /b 0
+    )
+)
+exit /b 1

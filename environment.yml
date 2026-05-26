@@ -1,0 +1,15 @@
+# Conda environment for the etho2mat conversion pipeline.
+# One-time setup (see README):  conda env create -f environment.yml
+# The launcher activates `traj` for you afterwards.
+name: traj
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - numpy
+  - pandas
+  - scipy
+  - matplotlib
+  - openpyxl          # read Ethovision .xlsx exports
+  - opencv            # arena / hole detection (HoughCircles)
+  - pytest            # run the golden regression test

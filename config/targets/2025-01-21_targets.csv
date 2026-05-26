@@ -1,0 +1,10 @@
+entrance,target_x,target_y,trials,mice,role
+"# Reward targets for experiment 2025-01-21 (protocol 2Target_ephys_Barrier)."
+"# A = (-13.33, 38.69), B = (17.97, -22.46). Single static entrance (NW) per mouse."
+"# Phases: 1-20 -> A; 21-29 -> B (reverse A); 35/37/39 -> A (reverse B); 36/38 -> B (reverse A)."
+"# Barrier trials 30-34 and Probe3 are MULTI-TARGET: both A and B baited -> target (2,2), no reverse."
+"# Habituation* and Probe -> A; Probe2/Probe4 -> B (reverse A)."
+NW,-13.33,38.69,"1-20, 35, 37, 39, 30-34, Probe, Probe3, Habituation*",,reward
+NW,17.97,-22.46,"21-29, 36, 38, 30-34, Probe2, Probe3, Probe4",,reward
+NW,-13.33,38.69,"21-29, 36, 38, Probe2, Probe4, Habituation*",,reverse
+NW,17.97,-22.46,"35, 37, 39",,reverse

@@ -1,0 +1,17 @@
+entrance,target_x,target_y,trials,mice,role
+"# Reward targets for experiment 2025-07-17 (protocol 2_target)."
+"# A/B per entrance. Per-mouse switch trial differs: males (54-57) A up to trial 30,"
+"# females (58-59) A up to trial 20. probe1 -> A; probe2 and habit* -> B. No reverse target."
+"# Static entrance per mouse: 54/58 SW, 55/59 SE, 56 NE, 57 NW."
+SW,38.09,12.03,"1-30, probe1",54,reward
+SW,-19.12,-24.21,"31-99, probe2, habit*",54,reward
+SW,38.09,12.03,"1-20, probe1",58,reward
+SW,-19.12,-24.21,"21-99, probe2, habit*",58,reward
+SE,-12.49,38.40,"1-30, probe1",55,reward
+SE,22.98,-18.51,"31-99, probe2, habit*",55,reward
+SE,-12.49,38.40,"1-20, probe1",59,reward
+SE,22.98,-18.51,"21-99, probe2, habit*",59,reward
+NE,-38.56,-13.11,"1-30, probe1",56,reward
+NE,18.51,23.60,"31-99, probe2, habit*",56,reward
+NW,12.34,-38.40,"1-30, probe1",57,reward
+NW,-23.91,18.51,"31-99, probe2, habit*",57,reward

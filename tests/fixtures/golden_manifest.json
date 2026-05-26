@@ -1,0 +1,3767 @@
+{
+  "_note": "Expected per-field signatures for the curated golden fixtures. Float fields are rounded to 1e-9 before hashing to absorb transcendental ULP noise (e.g. arctan2 in `heading`). Allowlisted fields are NOT compared by value (Spec section 12 deliberate changes + new-schema fields). The matching Excel inputs live in tests/fixtures/raw/.",
+  "trials": {
+    "hfm_2022-08-12_M69_1.mat": {
+      "fields": {
+        "arena_circle": {
+          "allowlisted": false,
+          "hash": "dd51e2f750bf966b5b0025b0c71a84e3fdbc7e94",
+          "kind": "f",
+          "shape": [
+            1,
+            3
+          ]
+        },
+        "bkgd_img": {
+          "allowlisted": false,
+          "hash": "54e1a1ae66d85b407b95e6b28bedc8b7a85ffd30",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "day": {
+          "allowlisted": false,
+          "hash": "c1dfd96eea8cc2b62785275bca38ac261256e278",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "entrance": {
+          "allowlisted": false,
+          "hash": "3fa7a7dd538c0af697bb26698ac5335de5bd8945",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "eth_file": {
+          "allowlisted": true,
+          "hash": "fb39936f2df2c73caf85c25b46782c7981952d86",
+          "kind": "i",
+          "shape": [
+            1,
+            1
+          ]
+        },
+        "exp": {
+          "allowlisted": false,
+          "hash": "839901836af5e066afa8c45b35891317e0205f61",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "experimenter": {
+          "allowlisted": false,
+          "hash": "74a70ed6d236df571f9f4be133941fe990ce1c7d",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "filename": {
+          "allowlisted": false,
+          "hash": "e59ae1b264fcd6b2392a0854286225069ea83516",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "img_extent": {
+          "allowlisted": false,
+          "hash": "1cb6fb1c78cc0f53e5fc25d17a779b40e1bbeb65",
+          "kind": "f",
+          "shape": [
+            1,
+            4
+          ]
+        },
+        "mouse_number": {
+          "allowlisted": false,
+          "hash": "a72b20062ec2c47ab2ceb97ac1bee818f8b6c6cb",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "mouse_sex": {
+          "allowlisted": false,
+          "hash": "030ef4a52619b493d3cc75d8034e3df378dae231",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "protocol_description": {
+          "allowlisted": false,
+          "hash": "c13796b24139ec263898646ce6d6de1627339519",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "protocol_name": {
+          "allowlisted": false,
+          "hash": "70d54f2661228eb90a12c43381a6b8fcab8fd9fa",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "r_arena_holes": {
+          "allowlisted": false,
+          "hash": "e3a3870370ca95841f723365a81dd4ab28adf3ff",
+          "kind": "f",
+          "shape": [
+            100,
+            2
+          ]
+        },
+        "r_center": {
+          "allowlisted": false,
+          "hash": "a3645b3109e5a8cc3c368622d1cfd554aa72872d",
+          "kind": "f",
+          "shape": [
+            9162,
+            2
+          ]
+        },
+        "r_nose": {
+          "allowlisted": false,
+          "hash": "557c503688817b68505d688001911945dd12566a",
+          "kind": "f",
+          "shape": [
+            9162,
+            2
+          ]
+        },
+        "r_tail": {
+          "allowlisted": false,
+          "hash": "85bdfea355dacbcfbfb573be70fe0f3308ed7500",
+          "kind": "f",
+          "shape": [
+            9162,
+            2
+          ]
+        },
+        "target": {
+          "allowlisted": false,
+          "hash": "f0ca15baaaca4fac862799e7b166288a039206d9",
+          "kind": "f",
+          "shape": [
+            1,
+            2
+          ]
+        },
+        "time": {
+          "allowlisted": false,
+          "hash": "7ac6531d0812645cc71dd25107882d150eaf53fa",
+          "kind": "f",
+          "shape": [
+            1,
+            9162
+          ]
+        },
+        "trial": {
+          "allowlisted": false,
+          "hash": "356a192b7913b04c54574d18c28d46e6395428ab",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        }
+      }
+    },
+    "hfm_2022-08-12_M69_19.mat": {
+      "fields": {
+        "arena_circle": {
+          "allowlisted": false,
+          "hash": "dd51e2f750bf966b5b0025b0c71a84e3fdbc7e94",
+          "kind": "f",
+          "shape": [
+            1,
+            3
+          ]
+        },
+        "bkgd_img": {
+          "allowlisted": false,
+          "hash": "54e1a1ae66d85b407b95e6b28bedc8b7a85ffd30",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "day": {
+          "allowlisted": false,
+          "hash": "7b52009b64fd0a2a49e6d8a939753077792b0554",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "entrance": {
+          "allowlisted": false,
+          "hash": "3fa7a7dd538c0af697bb26698ac5335de5bd8945",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "eth_file": {
+          "allowlisted": true,
+          "hash": "d7ac82940aada69aa9ba6f8a672ac35ef63f84fc",
+          "kind": "i",
+          "shape": [
+            1,
+            1
+          ]
+        },
+        "exp": {
+          "allowlisted": false,
+          "hash": "839901836af5e066afa8c45b35891317e0205f61",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "experimenter": {
+          "allowlisted": false,
+          "hash": "74a70ed6d236df571f9f4be133941fe990ce1c7d",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "filename": {
+          "allowlisted": false,
+          "hash": "3e2f66519902be5b0bcf36486a5da8d906ceb539",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "img_extent": {
+          "allowlisted": false,
+          "hash": "1cb6fb1c78cc0f53e5fc25d17a779b40e1bbeb65",
+          "kind": "f",
+          "shape": [
+            1,
+            4
+          ]
+        },
+        "mouse_number": {
+          "allowlisted": false,
+          "hash": "a72b20062ec2c47ab2ceb97ac1bee818f8b6c6cb",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "mouse_sex": {
+          "allowlisted": false,
+          "hash": "030ef4a52619b493d3cc75d8034e3df378dae231",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "protocol_description": {
+          "allowlisted": false,
+          "hash": "c13796b24139ec263898646ce6d6de1627339519",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "protocol_name": {
+          "allowlisted": false,
+          "hash": "70d54f2661228eb90a12c43381a6b8fcab8fd9fa",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "r_arena_holes": {
+          "allowlisted": false,
+          "hash": "e3a3870370ca95841f723365a81dd4ab28adf3ff",
+          "kind": "f",
+          "shape": [
+            100,
+            2
+          ]
+        },
+        "r_center": {
+          "allowlisted": false,
+          "hash": "cdee33d58c84d971ac965601cb2ea2cb04705e1e",
+          "kind": "f",
+          "shape": [
+            2574,
+            2
+          ]
+        },
+        "r_nose": {
+          "allowlisted": false,
+          "hash": "739d844a576efb3d779532804dc2f5404711ada6",
+          "kind": "f",
+          "shape": [
+            2574,
+            2
+          ]
+        },
+        "r_tail": {
+          "allowlisted": false,
+          "hash": "8af1b9d61e4e14e7cf5bc7ae75dbf67cc3473f76",
+          "kind": "f",
+          "shape": [
+            2574,
+            2
+          ]
+        },
+        "target": {
+          "allowlisted": false,
+          "hash": "d3798a8859b9599949720faa141328e98b1ba613",
+          "kind": "f",
+          "shape": [
+            1,
+            2
+          ]
+        },
+        "target_reverse": {
+          "allowlisted": false,
+          "hash": "f0ca15baaaca4fac862799e7b166288a039206d9",
+          "kind": "f",
+          "shape": [
+            1,
+            2
+          ]
+        },
+        "time": {
+          "allowlisted": false,
+          "hash": "f445339b16818048d47f05a99173fc647a804e64",
+          "kind": "f",
+          "shape": [
+            1,
+            2574
+          ]
+        },
+        "trial": {
+          "allowlisted": false,
+          "hash": "b3f0c7f6bb763af1be91d9e74eabfeb199dc1f1f",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        }
+      }
+    },
+    "hfm_2022-08-12_M69_Habituation 1.mat": {
+      "fields": {
+        "arena_circle": {
+          "allowlisted": false,
+          "hash": "dd51e2f750bf966b5b0025b0c71a84e3fdbc7e94",
+          "kind": "f",
+          "shape": [
+            1,
+            3
+          ]
+        },
+        "bkgd_img": {
+          "allowlisted": false,
+          "hash": "54e1a1ae66d85b407b95e6b28bedc8b7a85ffd30",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "day": {
+          "allowlisted": false,
+          "hash": "da4b9237bacccdf19c0760cab7aec4a8359010b0",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "entrance": {
+          "allowlisted": false,
+          "hash": "3fa7a7dd538c0af697bb26698ac5335de5bd8945",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "eth_file": {
+          "allowlisted": true,
+          "hash": "3da89ee273be13437e7ecf760f3fbd4dc0e8d1fe",
+          "kind": "i",
+          "shape": [
+            1,
+            1
+          ]
+        },
+        "exp": {
+          "allowlisted": false,
+          "hash": "839901836af5e066afa8c45b35891317e0205f61",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "experimenter": {
+          "allowlisted": false,
+          "hash": "74a70ed6d236df571f9f4be133941fe990ce1c7d",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "filename": {
+          "allowlisted": false,
+          "hash": "c387ab205cad9fc5e95d3b7277dac794db807ffa",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "img_extent": {
+          "allowlisted": false,
+          "hash": "1cb6fb1c78cc0f53e5fc25d17a779b40e1bbeb65",
+          "kind": "f",
+          "shape": [
+            1,
+            4
+          ]
+        },
+        "mouse_number": {
+          "allowlisted": false,
+          "hash": "a72b20062ec2c47ab2ceb97ac1bee818f8b6c6cb",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "mouse_sex": {
+          "allowlisted": false,
+          "hash": "030ef4a52619b493d3cc75d8034e3df378dae231",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "protocol_description": {
+          "allowlisted": false,
+          "hash": "c13796b24139ec263898646ce6d6de1627339519",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "protocol_name": {
+          "allowlisted": false,
+          "hash": "70d54f2661228eb90a12c43381a6b8fcab8fd9fa",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "r_arena_holes": {
+          "allowlisted": false,
+          "hash": "e3a3870370ca95841f723365a81dd4ab28adf3ff",
+          "kind": "f",
+          "shape": [
+            100,
+            2
+          ]
+        },
+        "r_center": {
+          "allowlisted": false,
+          "hash": "d0dfc3175e9e8ff7324736fcfdd55691ab319d75",
+          "kind": "f",
+          "shape": [
+            17918,
+            2
+          ]
+        },
+        "r_nose": {
+          "allowlisted": false,
+          "hash": "315cc1fd3eb736101ba95591e6cbbdf515f937ef",
+          "kind": "f",
+          "shape": [
+            17918,
+            2
+          ]
+        },
+        "r_tail": {
+          "allowlisted": false,
+          "hash": "c10c14add914206dda3247d44f81d82793f7dcce",
+          "kind": "f",
+          "shape": [
+            17918,
+            2
+          ]
+        },
+        "target": {
+          "allowlisted": false,
+          "hash": "d3798a8859b9599949720faa141328e98b1ba613",
+          "kind": "f",
+          "shape": [
+            1,
+            2
+          ]
+        },
+        "time": {
+          "allowlisted": false,
+          "hash": "b6f91657d935dd48a6c34dbda09ad7db9f084673",
+          "kind": "f",
+          "shape": [
+            1,
+            17918
+          ]
+        },
+        "trial": {
+          "allowlisted": false,
+          "hash": "7bec6b6c2632d4ce3a340f8130728e5e6c3e61ba",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        }
+      }
+    },
+    "hfm_2022-08-12_M69_Probe.mat": {
+      "fields": {
+        "arena_circle": {
+          "allowlisted": false,
+          "hash": "dd51e2f750bf966b5b0025b0c71a84e3fdbc7e94",
+          "kind": "f",
+          "shape": [
+            1,
+            3
+          ]
+        },
+        "bkgd_img": {
+          "allowlisted": false,
+          "hash": "54e1a1ae66d85b407b95e6b28bedc8b7a85ffd30",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "day": {
+          "allowlisted": false,
+          "hash": "7b52009b64fd0a2a49e6d8a939753077792b0554",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "entrance": {
+          "allowlisted": false,
+          "hash": "3fa7a7dd538c0af697bb26698ac5335de5bd8945",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "eth_file": {
+          "allowlisted": true,
+          "hash": "4458161c08b272f2a055a280bc36179b99659dcb",
+          "kind": "i",
+          "shape": [
+            1,
+            1
+          ]
+        },
+        "exp": {
+          "allowlisted": false,
+          "hash": "839901836af5e066afa8c45b35891317e0205f61",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "experimenter": {
+          "allowlisted": false,
+          "hash": "74a70ed6d236df571f9f4be133941fe990ce1c7d",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "filename": {
+          "allowlisted": false,
+          "hash": "7e6260673863dbd119f77bae614a262a399a40bb",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "img_extent": {
+          "allowlisted": false,
+          "hash": "1cb6fb1c78cc0f53e5fc25d17a779b40e1bbeb65",
+          "kind": "f",
+          "shape": [
+            1,
+            4
+          ]
+        },
+        "mouse_number": {
+          "allowlisted": false,
+          "hash": "a72b20062ec2c47ab2ceb97ac1bee818f8b6c6cb",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "mouse_sex": {
+          "allowlisted": false,
+          "hash": "030ef4a52619b493d3cc75d8034e3df378dae231",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "protocol_description": {
+          "allowlisted": false,
+          "hash": "c13796b24139ec263898646ce6d6de1627339519",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "protocol_name": {
+          "allowlisted": false,
+          "hash": "70d54f2661228eb90a12c43381a6b8fcab8fd9fa",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "r_arena_holes": {
+          "allowlisted": false,
+          "hash": "e3a3870370ca95841f723365a81dd4ab28adf3ff",
+          "kind": "f",
+          "shape": [
+            100,
+            2
+          ]
+        },
+        "r_center": {
+          "allowlisted": false,
+          "hash": "721a73ddf28394097de0da0b6dd7e6415df6246d",
+          "kind": "f",
+          "shape": [
+            17402,
+            2
+          ]
+        },
+        "r_nose": {
+          "allowlisted": false,
+          "hash": "ebe1b15a67541c08c42b1f25caa8516e60721cbb",
+          "kind": "f",
+          "shape": [
+            17402,
+            2
+          ]
+        },
+        "r_tail": {
+          "allowlisted": false,
+          "hash": "21212e9660c813434c670f1402df1254886ac5e4",
+          "kind": "f",
+          "shape": [
+            17402,
+            2
+          ]
+        },
+        "target": {
+          "allowlisted": false,
+          "hash": "d3798a8859b9599949720faa141328e98b1ba613",
+          "kind": "f",
+          "shape": [
+            1,
+            2
+          ]
+        },
+        "target_reverse": {
+          "allowlisted": false,
+          "hash": "f0ca15baaaca4fac862799e7b166288a039206d9",
+          "kind": "f",
+          "shape": [
+            1,
+            2
+          ]
+        },
+        "time": {
+          "allowlisted": false,
+          "hash": "d6ced9d2e904b9af99753cda465afb91de9f1aaf",
+          "kind": "f",
+          "shape": [
+            1,
+            17402
+          ]
+        },
+        "trial": {
+          "allowlisted": false,
+          "hash": "1a1a99d7ad6805f6ee156a7d20336009fa6ce175",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        }
+      }
+    },
+    "hfm_2022-08-12_M70_1.mat": {
+      "fields": {
+        "arena_circle": {
+          "allowlisted": false,
+          "hash": "dd51e2f750bf966b5b0025b0c71a84e3fdbc7e94",
+          "kind": "f",
+          "shape": [
+            1,
+            3
+          ]
+        },
+        "bkgd_img": {
+          "allowlisted": false,
+          "hash": "54e1a1ae66d85b407b95e6b28bedc8b7a85ffd30",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "day": {
+          "allowlisted": false,
+          "hash": "c1dfd96eea8cc2b62785275bca38ac261256e278",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "entrance": {
+          "allowlisted": false,
+          "hash": "5dce41c3c1fccd0c04d39f21a0cbde80a6071e2b",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "eth_file": {
+          "allowlisted": true,
+          "hash": "8c00184e2b9d75b5015b31ac37517b27a7ca2a16",
+          "kind": "i",
+          "shape": [
+            1,
+            1
+          ]
+        },
+        "exp": {
+          "allowlisted": false,
+          "hash": "839901836af5e066afa8c45b35891317e0205f61",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "experimenter": {
+          "allowlisted": false,
+          "hash": "74a70ed6d236df571f9f4be133941fe990ce1c7d",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "filename": {
+          "allowlisted": false,
+          "hash": "6c5bcb71adf7cd02391549869a7a87ff5c0e7f81",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "img_extent": {
+          "allowlisted": false,
+          "hash": "1cb6fb1c78cc0f53e5fc25d17a779b40e1bbeb65",
+          "kind": "f",
+          "shape": [
+            1,
+            4
+          ]
+        },
+        "mouse_number": {
+          "allowlisted": false,
+          "hash": "b7103ca278a75cad8f7d065acda0c2e80da0b7dc",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "mouse_sex": {
+          "allowlisted": false,
+          "hash": "030ef4a52619b493d3cc75d8034e3df378dae231",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "protocol_description": {
+          "allowlisted": false,
+          "hash": "c13796b24139ec263898646ce6d6de1627339519",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "protocol_name": {
+          "allowlisted": false,
+          "hash": "70d54f2661228eb90a12c43381a6b8fcab8fd9fa",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "r_arena_holes": {
+          "allowlisted": false,
+          "hash": "e3a3870370ca95841f723365a81dd4ab28adf3ff",
+          "kind": "f",
+          "shape": [
+            100,
+            2
+          ]
+        },
+        "r_center": {
+          "allowlisted": false,
+          "hash": "553e04e3b913b0ada5ddb7aae9b0c37f0855e648",
+          "kind": "f",
+          "shape": [
+            14516,
+            2
+          ]
+        },
+        "r_nose": {
+          "allowlisted": false,
+          "hash": "4b8f7832e88a92354673a4b2ff62e01ff84383e1",
+          "kind": "f",
+          "shape": [
+            14516,
+            2
+          ]
+        },
+        "r_tail": {
+          "allowlisted": false,
+          "hash": "5d1398783fd9c71766a740e62c71b90ec2f1c142",
+          "kind": "f",
+          "shape": [
+            14516,
+            2
+          ]
+        },
+        "target": {
+          "allowlisted": false,
+          "hash": "e3a30c27ff3c11a2f0aba2d773aacd8d7063f647",
+          "kind": "f",
+          "shape": [
+            1,
+            2
+          ]
+        },
+        "time": {
+          "allowlisted": false,
+          "hash": "0ff56344fafba7bfbd954cbc43151f10028f059e",
+          "kind": "f",
+          "shape": [
+            1,
+            14516
+          ]
+        },
+        "trial": {
+          "allowlisted": false,
+          "hash": "356a192b7913b04c54574d18c28d46e6395428ab",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        }
+      }
+    },
+    "hfm_2025-01-21_M112_1.mat": {
+      "fields": {
+        "arena_circle": {
+          "allowlisted": false,
+          "hash": "2d861c83d301cc0e304d782293dad770e9b60ad5",
+          "kind": "f",
+          "shape": [
+            1,
+            3
+          ]
+        },
+        "bkgd_img": {
+          "allowlisted": false,
+          "hash": "76167764ce2d64ffdf5c1c66f78d8eb177adcf6c",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "day": {
+          "allowlisted": false,
+          "hash": "1b6453892473a467d07372d45eb05abc2031647a",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "entrance": {
+          "allowlisted": false,
+          "hash": "4c205cfc2e35806118b389e25fd798b1bf1a60ac",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "eth_file": {
+          "allowlisted": true,
+          "hash": "ef4862c8fb031cd58eba3b882589e445c7e1f0e2",
+          "kind": "i",
+          "shape": [
+            1,
+            1
+          ]
+        },
+        "exp": {
+          "allowlisted": false,
+          "hash": "a23c5fe8f429a701ff0535782e52257e16af670b",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "experimenter": {
+          "allowlisted": false,
+          "hash": "ac7b81f657235f4c53d02842a6fca232edfd3c2f",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "filename": {
+          "allowlisted": false,
+          "hash": "2b04bdcaf8a68cbd69ae81c40f89b71f452f8815",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "head_direction": {
+          "allowlisted": false,
+          "hash": "c7dc376b2217cc906a14014c543faf22212e3665",
+          "kind": "f",
+          "shape": [
+            1,
+            13354
+          ]
+        },
+        "heading": {
+          "allowlisted": false,
+          "hash": "3f615b62ce96261a0ab95e0b89c695ceb820b499",
+          "kind": "f",
+          "shape": [
+            1,
+            13354
+          ]
+        },
+        "img_extent": {
+          "allowlisted": false,
+          "hash": "1672042bfad93b7e28d4de205a4843a81fbe65c6",
+          "kind": "f",
+          "shape": [
+            1,
+            4
+          ]
+        },
+        "k_hole_checks": {
+          "allowlisted": false,
+          "hash": "ab605e11a6568b0a2f702cc68e3c7731b2057497",
+          "kind": "i",
+          "shape": [
+            81,
+            2
+          ]
+        },
+        "k_reward": {
+          "allowlisted": false,
+          "hash": "7c93d3a8e650ae54207cd625b065257890ac72d3",
+          "kind": "i",
+          "shape": [
+            1,
+            1
+          ]
+        },
+        "mouse_number": {
+          "allowlisted": false,
+          "hash": "601ca99d55f00a2e8e736676b606a4d31d374fdd",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "mouse_sex": {
+          "allowlisted": false,
+          "hash": "030ef4a52619b493d3cc75d8034e3df378dae231",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "protocol_description": {
+          "allowlisted": false,
+          "hash": "d495be280eac5e43207a58ba7acf0f418ba2e3c4",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "protocol_name": {
+          "allowlisted": false,
+          "hash": "70b1da5737d106429f392186e9f4ac7ed8ea6178",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "r_arena_holes": {
+          "allowlisted": false,
+          "hash": "91d608bfb913652b68ded390daab5481b39995d3",
+          "kind": "f",
+          "shape": [
+            100,
+            2
+          ]
+        },
+        "r_center": {
+          "allowlisted": false,
+          "hash": "e18de19423f53af1a8712f9f3373d1e218b0e97a",
+          "kind": "f",
+          "shape": [
+            13354,
+            2
+          ]
+        },
+        "r_nose": {
+          "allowlisted": false,
+          "hash": "d122ffd91a591164192d6874e19f9ed74aa0af55",
+          "kind": "f",
+          "shape": [
+            13354,
+            2
+          ]
+        },
+        "r_tail": {
+          "allowlisted": false,
+          "hash": "5afe613e21f464bcb70263a1f49286a1a57ad3fc",
+          "kind": "f",
+          "shape": [
+            13354,
+            2
+          ]
+        },
+        "target": {
+          "allowlisted": false,
+          "hash": "a0c95ee6f7556bf22afd32ca3b0159fcc84e2c81",
+          "kind": "f",
+          "shape": [
+            1,
+            2
+          ]
+        },
+        "time": {
+          "allowlisted": false,
+          "hash": "7d430103ea5b542eb6a5045527c2c7bfc657dff0",
+          "kind": "f",
+          "shape": [
+            1,
+            13354
+          ]
+        },
+        "trial": {
+          "allowlisted": false,
+          "hash": "356a192b7913b04c54574d18c28d46e6395428ab",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "velocity": {
+          "allowlisted": false,
+          "hash": "744dcdc473b364d5f6978e6e036c76882e9a3085",
+          "kind": "f",
+          "shape": [
+            1,
+            13354
+          ]
+        }
+      }
+    },
+    "hfm_2025-01-21_M112_21.mat": {
+      "fields": {
+        "arena_circle": {
+          "allowlisted": false,
+          "hash": "2d861c83d301cc0e304d782293dad770e9b60ad5",
+          "kind": "f",
+          "shape": [
+            1,
+            3
+          ]
+        },
+        "bkgd_img": {
+          "allowlisted": false,
+          "hash": "76167764ce2d64ffdf5c1c66f78d8eb177adcf6c",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "day": {
+          "allowlisted": false,
+          "hash": "0ade7c2cf97f75d009975f4d720d1fa6c19f4897",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "entrance": {
+          "allowlisted": false,
+          "hash": "4c205cfc2e35806118b389e25fd798b1bf1a60ac",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "eth_file": {
+          "allowlisted": true,
+          "hash": "a03371b59561ca253ea7c4a9061da0ac80b264af",
+          "kind": "i",
+          "shape": [
+            1,
+            1
+          ]
+        },
+        "exp": {
+          "allowlisted": false,
+          "hash": "a23c5fe8f429a701ff0535782e52257e16af670b",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "experimenter": {
+          "allowlisted": false,
+          "hash": "ac7b81f657235f4c53d02842a6fca232edfd3c2f",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "filename": {
+          "allowlisted": false,
+          "hash": "d14bc5b82ac2c018334b6a718e1dc785c94bd711",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "head_direction": {
+          "allowlisted": false,
+          "hash": "3a28f7473c33e15f03e9c26e35fa813486d01b98",
+          "kind": "f",
+          "shape": [
+            1,
+            3503
+          ]
+        },
+        "heading": {
+          "allowlisted": false,
+          "hash": "6787455e275006535f294fdb605951fcb0aa19fc",
+          "kind": "f",
+          "shape": [
+            1,
+            3503
+          ]
+        },
+        "img_extent": {
+          "allowlisted": false,
+          "hash": "1672042bfad93b7e28d4de205a4843a81fbe65c6",
+          "kind": "f",
+          "shape": [
+            1,
+            4
+          ]
+        },
+        "k_hole_checks": {
+          "allowlisted": false,
+          "hash": "dfa1c88ff17ba5b67f2a861a0ce6beb74e392b16",
+          "kind": "i",
+          "shape": [
+            51,
+            2
+          ]
+        },
+        "k_reward": {
+          "allowlisted": false,
+          "hash": "3d803bdd3a9513b5517bfbe52fe796775940a196",
+          "kind": "i",
+          "shape": [
+            1,
+            1
+          ]
+        },
+        "mouse_number": {
+          "allowlisted": false,
+          "hash": "601ca99d55f00a2e8e736676b606a4d31d374fdd",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "mouse_sex": {
+          "allowlisted": false,
+          "hash": "030ef4a52619b493d3cc75d8034e3df378dae231",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "protocol_description": {
+          "allowlisted": false,
+          "hash": "d495be280eac5e43207a58ba7acf0f418ba2e3c4",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "protocol_name": {
+          "allowlisted": false,
+          "hash": "70b1da5737d106429f392186e9f4ac7ed8ea6178",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "r_arena_holes": {
+          "allowlisted": false,
+          "hash": "91d608bfb913652b68ded390daab5481b39995d3",
+          "kind": "f",
+          "shape": [
+            100,
+            2
+          ]
+        },
+        "r_center": {
+          "allowlisted": false,
+          "hash": "6b4b401eaae1dcabe2ab9a5a6954cd21964e0a4e",
+          "kind": "f",
+          "shape": [
+            3503,
+            2
+          ]
+        },
+        "r_nose": {
+          "allowlisted": false,
+          "hash": "2df8f51b6605d533943a76f23d0ba5f54e0f56c6",
+          "kind": "f",
+          "shape": [
+            3503,
+            2
+          ]
+        },
+        "r_tail": {
+          "allowlisted": false,
+          "hash": "2c64f8e1efa91514133b7424752a3959231d0839",
+          "kind": "f",
+          "shape": [
+            3503,
+            2
+          ]
+        },
+        "target": {
+          "allowlisted": false,
+          "hash": "a27f5c39bb38db476ed6ca13a43f863d920d9078",
+          "kind": "f",
+          "shape": [
+            1,
+            2
+          ]
+        },
+        "target_reverse": {
+          "allowlisted": false,
+          "hash": "a0c95ee6f7556bf22afd32ca3b0159fcc84e2c81",
+          "kind": "f",
+          "shape": [
+            1,
+            2
+          ]
+        },
+        "time": {
+          "allowlisted": false,
+          "hash": "dc627e24ae9a7074acdf42a077dfd4e0f4130b85",
+          "kind": "f",
+          "shape": [
+            1,
+            3503
+          ]
+        },
+        "trial": {
+          "allowlisted": false,
+          "hash": "472b07b9fcf2c2451e8781e944bf5f77cd8457c8",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "velocity": {
+          "allowlisted": false,
+          "hash": "514a404d1edb3c5080e98edfeba7fe13c0201158",
+          "kind": "f",
+          "shape": [
+            1,
+            3503
+          ]
+        }
+      }
+    },
+    "hfm_2025-01-21_M112_30.mat": {
+      "fields": {
+        "arena_circle": {
+          "allowlisted": false,
+          "hash": "2d861c83d301cc0e304d782293dad770e9b60ad5",
+          "kind": "f",
+          "shape": [
+            1,
+            3
+          ]
+        },
+        "bkgd_img": {
+          "allowlisted": false,
+          "hash": "76167764ce2d64ffdf5c1c66f78d8eb177adcf6c",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "day": {
+          "allowlisted": false,
+          "hash": "17ba0791499db908433b80f37c5fbc89b870084b",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "entrance": {
+          "allowlisted": false,
+          "hash": "4c205cfc2e35806118b389e25fd798b1bf1a60ac",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "eth_file": {
+          "allowlisted": true,
+          "hash": "b0a4e6fe4c44cbddb1dcb8c5e95488629e361cfa",
+          "kind": "i",
+          "shape": [
+            1,
+            1
+          ]
+        },
+        "exp": {
+          "allowlisted": false,
+          "hash": "a23c5fe8f429a701ff0535782e52257e16af670b",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "experimenter": {
+          "allowlisted": false,
+          "hash": "ac7b81f657235f4c53d02842a6fca232edfd3c2f",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "filename": {
+          "allowlisted": false,
+          "hash": "83a1a96d7446f6f2a9df673698cc823a5a5db45a",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "head_direction": {
+          "allowlisted": false,
+          "hash": "ddcf879d179f47021704bec32a429e7753026968",
+          "kind": "f",
+          "shape": [
+            1,
+            8385
+          ]
+        },
+        "heading": {
+          "allowlisted": false,
+          "hash": "180cb3beb0e4de28865293c36715986ca8602671",
+          "kind": "f",
+          "shape": [
+            1,
+            8385
+          ]
+        },
+        "img_extent": {
+          "allowlisted": false,
+          "hash": "1672042bfad93b7e28d4de205a4843a81fbe65c6",
+          "kind": "f",
+          "shape": [
+            1,
+            4
+          ]
+        },
+        "k_hole_checks": {
+          "allowlisted": false,
+          "hash": "efc15bda3a34313ec4496ac4e3c8dc5c4466beb1",
+          "kind": "i",
+          "shape": [
+            103,
+            2
+          ]
+        },
+        "k_reward": {
+          "allowlisted": true,
+          "hash": "547a79742334fd34bfa9038fe63808cbae90f3da",
+          "kind": "i",
+          "shape": [
+            1,
+            1
+          ]
+        },
+        "mouse_number": {
+          "allowlisted": false,
+          "hash": "601ca99d55f00a2e8e736676b606a4d31d374fdd",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "mouse_sex": {
+          "allowlisted": false,
+          "hash": "030ef4a52619b493d3cc75d8034e3df378dae231",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "protocol_description": {
+          "allowlisted": false,
+          "hash": "d495be280eac5e43207a58ba7acf0f418ba2e3c4",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "protocol_name": {
+          "allowlisted": false,
+          "hash": "70b1da5737d106429f392186e9f4ac7ed8ea6178",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "r_arena_holes": {
+          "allowlisted": false,
+          "hash": "91d608bfb913652b68ded390daab5481b39995d3",
+          "kind": "f",
+          "shape": [
+            100,
+            2
+          ]
+        },
+        "r_center": {
+          "allowlisted": false,
+          "hash": "061ead8e3e263485c442d18901c408b11326a999",
+          "kind": "f",
+          "shape": [
+            8385,
+            2
+          ]
+        },
+        "r_nose": {
+          "allowlisted": false,
+          "hash": "ac73edeba5a33d19d0920779b9210683d65de448",
+          "kind": "f",
+          "shape": [
+            8385,
+            2
+          ]
+        },
+        "r_tail": {
+          "allowlisted": false,
+          "hash": "39cc960463ad93beddd89c780fd3534e7113be1c",
+          "kind": "f",
+          "shape": [
+            8385,
+            2
+          ]
+        },
+        "target": {
+          "allowlisted": true,
+          "hash": "a27f5c39bb38db476ed6ca13a43f863d920d9078",
+          "kind": "f",
+          "shape": [
+            1,
+            2
+          ]
+        },
+        "target_reverse": {
+          "allowlisted": true,
+          "hash": "a0c95ee6f7556bf22afd32ca3b0159fcc84e2c81",
+          "kind": "f",
+          "shape": [
+            1,
+            2
+          ]
+        },
+        "time": {
+          "allowlisted": false,
+          "hash": "767189fd75402fd1c45b414ca5059b63a7903f0e",
+          "kind": "f",
+          "shape": [
+            1,
+            8385
+          ]
+        },
+        "trial": {
+          "allowlisted": false,
+          "hash": "22d200f8670dbdb3e253a90eee5098477c95c23d",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "velocity": {
+          "allowlisted": false,
+          "hash": "ca1c872f28927c7cb949eefea50e5cab5cb0cb43",
+          "kind": "f",
+          "shape": [
+            1,
+            8385
+          ]
+        }
+      }
+    },
+    "hfm_2025-01-21_M112_35.mat": {
+      "fields": {
+        "arena_circle": {
+          "allowlisted": false,
+          "hash": "2d861c83d301cc0e304d782293dad770e9b60ad5",
+          "kind": "f",
+          "shape": [
+            1,
+            3
+          ]
+        },
+        "bkgd_img": {
+          "allowlisted": false,
+          "hash": "76167764ce2d64ffdf5c1c66f78d8eb177adcf6c",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "day": {
+          "allowlisted": false,
+          "hash": "7b52009b64fd0a2a49e6d8a939753077792b0554",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "entrance": {
+          "allowlisted": false,
+          "hash": "4c205cfc2e35806118b389e25fd798b1bf1a60ac",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "eth_file": {
+          "allowlisted": true,
+          "hash": "e5ed7044efe912cc84c913980448ac0597b98775",
+          "kind": "i",
+          "shape": [
+            1,
+            1
+          ]
+        },
+        "exp": {
+          "allowlisted": false,
+          "hash": "a23c5fe8f429a701ff0535782e52257e16af670b",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "experimenter": {
+          "allowlisted": false,
+          "hash": "ac7b81f657235f4c53d02842a6fca232edfd3c2f",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "filename": {
+          "allowlisted": false,
+          "hash": "5eda50771f4586bd5e330e48cdebbc72fdfa8234",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "head_direction": {
+          "allowlisted": false,
+          "hash": "2cf74b0373da574c47f7095924daa10956681a77",
+          "kind": "f",
+          "shape": [
+            1,
+            3474
+          ]
+        },
+        "heading": {
+          "allowlisted": false,
+          "hash": "917bc836aca45a69a95c6ad294e148ee535766de",
+          "kind": "f",
+          "shape": [
+            1,
+            3474
+          ]
+        },
+        "img_extent": {
+          "allowlisted": false,
+          "hash": "1672042bfad93b7e28d4de205a4843a81fbe65c6",
+          "kind": "f",
+          "shape": [
+            1,
+            4
+          ]
+        },
+        "k_hole_checks": {
+          "allowlisted": false,
+          "hash": "d09893d52cb50e1dc8576ae5fc1fff202e714913",
+          "kind": "i",
+          "shape": [
+            44,
+            2
+          ]
+        },
+        "k_reward": {
+          "allowlisted": false,
+          "hash": "7dca85d7651f8f795f45fab8925668f6e34d193a",
+          "kind": "i",
+          "shape": [
+            1,
+            1
+          ]
+        },
+        "mouse_number": {
+          "allowlisted": false,
+          "hash": "601ca99d55f00a2e8e736676b606a4d31d374fdd",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "mouse_sex": {
+          "allowlisted": false,
+          "hash": "030ef4a52619b493d3cc75d8034e3df378dae231",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "protocol_description": {
+          "allowlisted": false,
+          "hash": "d495be280eac5e43207a58ba7acf0f418ba2e3c4",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "protocol_name": {
+          "allowlisted": false,
+          "hash": "70b1da5737d106429f392186e9f4ac7ed8ea6178",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "r_arena_holes": {
+          "allowlisted": false,
+          "hash": "91d608bfb913652b68ded390daab5481b39995d3",
+          "kind": "f",
+          "shape": [
+            100,
+            2
+          ]
+        },
+        "r_center": {
+          "allowlisted": false,
+          "hash": "3c78d12aeaf1a98d1750d83ac35cf45a073e411f",
+          "kind": "f",
+          "shape": [
+            3474,
+            2
+          ]
+        },
+        "r_nose": {
+          "allowlisted": false,
+          "hash": "113fd6e112060d6ef26d80fde89115f873c6b58f",
+          "kind": "f",
+          "shape": [
+            3474,
+            2
+          ]
+        },
+        "r_tail": {
+          "allowlisted": false,
+          "hash": "95b1a5a56e6f72e0a4f6e62e458bbf2deb1c7dd5",
+          "kind": "f",
+          "shape": [
+            3474,
+            2
+          ]
+        },
+        "target": {
+          "allowlisted": false,
+          "hash": "a0c95ee6f7556bf22afd32ca3b0159fcc84e2c81",
+          "kind": "f",
+          "shape": [
+            1,
+            2
+          ]
+        },
+        "target_reverse": {
+          "allowlisted": false,
+          "hash": "a27f5c39bb38db476ed6ca13a43f863d920d9078",
+          "kind": "f",
+          "shape": [
+            1,
+            2
+          ]
+        },
+        "time": {
+          "allowlisted": false,
+          "hash": "b967ee0c5eb2922d2d76928ff0c6a1492d9456b8",
+          "kind": "f",
+          "shape": [
+            1,
+            3474
+          ]
+        },
+        "trial": {
+          "allowlisted": false,
+          "hash": "972a67c48192728a34979d9a35164c1295401b71",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "velocity": {
+          "allowlisted": false,
+          "hash": "b1fffed1b5d6146695e482acf1565f7acffa7ea3",
+          "kind": "f",
+          "shape": [
+            1,
+            3474
+          ]
+        }
+      }
+    },
+    "hfm_2025-01-21_M112_Habituation 1.mat": {
+      "fields": {
+        "arena_circle": {
+          "allowlisted": false,
+          "hash": "2d861c83d301cc0e304d782293dad770e9b60ad5",
+          "kind": "f",
+          "shape": [
+            1,
+            3
+          ]
+        },
+        "bkgd_img": {
+          "allowlisted": false,
+          "hash": "76167764ce2d64ffdf5c1c66f78d8eb177adcf6c",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "day": {
+          "allowlisted": false,
+          "hash": "da4b9237bacccdf19c0760cab7aec4a8359010b0",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "entrance": {
+          "allowlisted": false,
+          "hash": "4c205cfc2e35806118b389e25fd798b1bf1a60ac",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "eth_file": {
+          "allowlisted": true,
+          "hash": "3da89ee273be13437e7ecf760f3fbd4dc0e8d1fe",
+          "kind": "i",
+          "shape": [
+            1,
+            1
+          ]
+        },
+        "exp": {
+          "allowlisted": false,
+          "hash": "a23c5fe8f429a701ff0535782e52257e16af670b",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "experimenter": {
+          "allowlisted": false,
+          "hash": "ac7b81f657235f4c53d02842a6fca232edfd3c2f",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "filename": {
+          "allowlisted": false,
+          "hash": "f3783507af5e3aae825253b863138061fcead408",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "head_direction": {
+          "allowlisted": false,
+          "hash": "c1baef3a6a2f5c822cd73e86d629f66231b42978",
+          "kind": "f",
+          "shape": [
+            1,
+            56843
+          ]
+        },
+        "heading": {
+          "allowlisted": false,
+          "hash": "dd02af317a9f071533e9a298e7cb4c1a1eb3046a",
+          "kind": "f",
+          "shape": [
+            1,
+            56843
+          ]
+        },
+        "img_extent": {
+          "allowlisted": false,
+          "hash": "1672042bfad93b7e28d4de205a4843a81fbe65c6",
+          "kind": "f",
+          "shape": [
+            1,
+            4
+          ]
+        },
+        "k_hole_checks": {
+          "allowlisted": false,
+          "hash": "9a8ed6f6d03317a4680567ceaa7a4ea1c34b019c",
+          "kind": "i",
+          "shape": [
+            231,
+            2
+          ]
+        },
+        "k_reward": {
+          "allowlisted": true,
+          "hash": "455db35f1f896ca28ca74f71240cb501b0e93020",
+          "kind": "i",
+          "shape": [
+            1,
+            1
+          ]
+        },
+        "mouse_number": {
+          "allowlisted": false,
+          "hash": "601ca99d55f00a2e8e736676b606a4d31d374fdd",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "mouse_sex": {
+          "allowlisted": false,
+          "hash": "030ef4a52619b493d3cc75d8034e3df378dae231",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "protocol_description": {
+          "allowlisted": false,
+          "hash": "d495be280eac5e43207a58ba7acf0f418ba2e3c4",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "protocol_name": {
+          "allowlisted": false,
+          "hash": "70b1da5737d106429f392186e9f4ac7ed8ea6178",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "r_arena_holes": {
+          "allowlisted": false,
+          "hash": "91d608bfb913652b68ded390daab5481b39995d3",
+          "kind": "f",
+          "shape": [
+            100,
+            2
+          ]
+        },
+        "r_center": {
+          "allowlisted": false,
+          "hash": "257b3a01e8e15528e7a7c3e8205459a150571050",
+          "kind": "f",
+          "shape": [
+            56843,
+            2
+          ]
+        },
+        "r_nose": {
+          "allowlisted": false,
+          "hash": "f620790560861734e90bd4c85317cb0e1f706aec",
+          "kind": "f",
+          "shape": [
+            56843,
+            2
+          ]
+        },
+        "r_tail": {
+          "allowlisted": false,
+          "hash": "d98111a9614844a7972c641e012dfe379ed6ebe7",
+          "kind": "f",
+          "shape": [
+            56843,
+            2
+          ]
+        },
+        "target": {
+          "allowlisted": false,
+          "hash": "a0c95ee6f7556bf22afd32ca3b0159fcc84e2c81",
+          "kind": "f",
+          "shape": [
+            1,
+            2
+          ]
+        },
+        "target_reverse": {
+          "allowlisted": false,
+          "hash": "a0c95ee6f7556bf22afd32ca3b0159fcc84e2c81",
+          "kind": "f",
+          "shape": [
+            1,
+            2
+          ]
+        },
+        "time": {
+          "allowlisted": false,
+          "hash": "2de619f5e8881bf4aa984e0a33ba1dccd12acf83",
+          "kind": "f",
+          "shape": [
+            1,
+            56843
+          ]
+        },
+        "trial": {
+          "allowlisted": false,
+          "hash": "7bec6b6c2632d4ce3a340f8130728e5e6c3e61ba",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "velocity": {
+          "allowlisted": false,
+          "hash": "d65b1ba3251fbba90a897b4d77892b572969b7f4",
+          "kind": "f",
+          "shape": [
+            1,
+            56843
+          ]
+        }
+      }
+    },
+    "hfm_2025-01-21_M112_Probe3.mat": {
+      "fields": {
+        "arena_circle": {
+          "allowlisted": false,
+          "hash": "2d861c83d301cc0e304d782293dad770e9b60ad5",
+          "kind": "f",
+          "shape": [
+            1,
+            3
+          ]
+        },
+        "bkgd_img": {
+          "allowlisted": false,
+          "hash": "76167764ce2d64ffdf5c1c66f78d8eb177adcf6c",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "day": {
+          "allowlisted": false,
+          "hash": "17ba0791499db908433b80f37c5fbc89b870084b",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "entrance": {
+          "allowlisted": false,
+          "hash": "4c205cfc2e35806118b389e25fd798b1bf1a60ac",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "eth_file": {
+          "allowlisted": true,
+          "hash": "75ad30e25d1dbda870c3eb6b3aff51de05d6487f",
+          "kind": "i",
+          "shape": [
+            1,
+            1
+          ]
+        },
+        "exp": {
+          "allowlisted": false,
+          "hash": "a23c5fe8f429a701ff0535782e52257e16af670b",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "experimenter": {
+          "allowlisted": false,
+          "hash": "ac7b81f657235f4c53d02842a6fca232edfd3c2f",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "filename": {
+          "allowlisted": false,
+          "hash": "bd7bc416c9cf87774bd34a5bc69f523af20ce040",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "head_direction": {
+          "allowlisted": false,
+          "hash": "7b35939f5c40fe77957875087165a225cf84068f",
+          "kind": "f",
+          "shape": [
+            1,
+            48240
+          ]
+        },
+        "heading": {
+          "allowlisted": false,
+          "hash": "b8a2d63d48842ec8a5eea1a6077ef1988d0e751a",
+          "kind": "f",
+          "shape": [
+            1,
+            48240
+          ]
+        },
+        "img_extent": {
+          "allowlisted": false,
+          "hash": "1672042bfad93b7e28d4de205a4843a81fbe65c6",
+          "kind": "f",
+          "shape": [
+            1,
+            4
+          ]
+        },
+        "k_hole_checks": {
+          "allowlisted": false,
+          "hash": "d0e64363c65d12afb09b4415dcdb413f11694538",
+          "kind": "i",
+          "shape": [
+            863,
+            2
+          ]
+        },
+        "k_reward": {
+          "allowlisted": true,
+          "hash": "4650d9b46cab0ac45590ec5736258eed339198bb",
+          "kind": "i",
+          "shape": [
+            1,
+            1
+          ]
+        },
+        "mouse_number": {
+          "allowlisted": false,
+          "hash": "601ca99d55f00a2e8e736676b606a4d31d374fdd",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "mouse_sex": {
+          "allowlisted": false,
+          "hash": "030ef4a52619b493d3cc75d8034e3df378dae231",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "protocol_description": {
+          "allowlisted": false,
+          "hash": "d495be280eac5e43207a58ba7acf0f418ba2e3c4",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "protocol_name": {
+          "allowlisted": false,
+          "hash": "70b1da5737d106429f392186e9f4ac7ed8ea6178",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "r_arena_holes": {
+          "allowlisted": false,
+          "hash": "91d608bfb913652b68ded390daab5481b39995d3",
+          "kind": "f",
+          "shape": [
+            100,
+            2
+          ]
+        },
+        "r_center": {
+          "allowlisted": false,
+          "hash": "0192b8d074b878b7cce3787eaafb49c75fb751a7",
+          "kind": "f",
+          "shape": [
+            48240,
+            2
+          ]
+        },
+        "r_nose": {
+          "allowlisted": false,
+          "hash": "c255629f76924934c7365b455142a8850b89300d",
+          "kind": "f",
+          "shape": [
+            48240,
+            2
+          ]
+        },
+        "r_tail": {
+          "allowlisted": false,
+          "hash": "612c1c6eb08d58949ee84963e6466977b515dcec",
+          "kind": "f",
+          "shape": [
+            48240,
+            2
+          ]
+        },
+        "target": {
+          "allowlisted": true,
+          "hash": "a27f5c39bb38db476ed6ca13a43f863d920d9078",
+          "kind": "f",
+          "shape": [
+            1,
+            2
+          ]
+        },
+        "target_reverse": {
+          "allowlisted": true,
+          "hash": "a0c95ee6f7556bf22afd32ca3b0159fcc84e2c81",
+          "kind": "f",
+          "shape": [
+            1,
+            2
+          ]
+        },
+        "time": {
+          "allowlisted": false,
+          "hash": "85175ba2daa3c78973d89a1f29b4c3ba6e4d218a",
+          "kind": "f",
+          "shape": [
+            1,
+            48240
+          ]
+        },
+        "trial": {
+          "allowlisted": false,
+          "hash": "7a03a8e01844b210065ba131c665ec37e37beb43",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "velocity": {
+          "allowlisted": false,
+          "hash": "0e246f41c0b414b27542764a2990e9fb78e0611f",
+          "kind": "f",
+          "shape": [
+            1,
+            48240
+          ]
+        }
+      }
+    },
+    "hfm_2025-07-17_M54_1.mat": {
+      "fields": {
+        "arena_circle": {
+          "allowlisted": false,
+          "hash": "0e84a85081ff80e960caa05926263dce1e30f7e6",
+          "kind": "f",
+          "shape": [
+            1,
+            3
+          ]
+        },
+        "bkgd_img": {
+          "allowlisted": false,
+          "hash": "ac09e8b4661b371f3c17118ffa676cbc61470778",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "day": {
+          "allowlisted": false,
+          "hash": "c1dfd96eea8cc2b62785275bca38ac261256e278",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "entrance": {
+          "allowlisted": false,
+          "hash": "3fa7a7dd538c0af697bb26698ac5335de5bd8945",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "eth_file": {
+          "allowlisted": true,
+          "hash": "544968a341fb96710f6c86df1fe440b72355d7bb",
+          "kind": "i",
+          "shape": [
+            1,
+            1
+          ]
+        },
+        "exp": {
+          "allowlisted": false,
+          "hash": "c87ba738c3b5071f9437c2cdca6262eb9743b1fb",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "experimenter": {
+          "allowlisted": false,
+          "hash": "538bb9d733a0093accc37fed7f9d329b6b4c5349",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "filename": {
+          "allowlisted": false,
+          "hash": "07a8ffcaac1b188a116a50ef88592517fdba25f9",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "head_direction": {
+          "allowlisted": false,
+          "hash": "de0bf0a626446ef28d567a550ac53ad1cbe7d519",
+          "kind": "f",
+          "shape": [
+            1,
+            6512
+          ]
+        },
+        "heading": {
+          "allowlisted": false,
+          "hash": "fb8e194ce11db780d6159b0eb0df4013c3db4a85",
+          "kind": "f",
+          "shape": [
+            1,
+            6512
+          ]
+        },
+        "img_extent": {
+          "allowlisted": false,
+          "hash": "a89f1ccfda942dff65909e09869b8cc6884fc2f9",
+          "kind": "f",
+          "shape": [
+            1,
+            4
+          ]
+        },
+        "k_hole_checks": {
+          "allowlisted": false,
+          "hash": "b44284bd811d4887cf924dc95015163dff6ec198",
+          "kind": "i",
+          "shape": [
+            19,
+            2
+          ]
+        },
+        "k_reward": {
+          "allowlisted": false,
+          "hash": "01535bcb897f2dd9dc38425b0e1ccfda7e0640e7",
+          "kind": "i",
+          "shape": [
+            1,
+            1
+          ]
+        },
+        "mouse_number": {
+          "allowlisted": false,
+          "hash": "80e28a51cbc26fa4bd34938c5e593b36146f5e0c",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "mouse_sex": {
+          "allowlisted": true,
+          "hash": "96a1a08dcded48b7e695aed7c577dc04c982a4f7",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "protocol_description": {
+          "allowlisted": false,
+          "hash": "ede72d03a444111a03dec26b2324703cbabde18f",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "protocol_name": {
+          "allowlisted": false,
+          "hash": "cde87aa92b23938ffcff72ae610b0006e0a40cf6",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "r_arena_holes": {
+          "allowlisted": false,
+          "hash": "c8b857502725bf73881f54ebd142c5d9555f84cc",
+          "kind": "f",
+          "shape": [
+            100,
+            2
+          ]
+        },
+        "r_center": {
+          "allowlisted": false,
+          "hash": "7671a4cf3d4275f344887dead9f1891b97da74f9",
+          "kind": "f",
+          "shape": [
+            6512,
+            2
+          ]
+        },
+        "r_nose": {
+          "allowlisted": false,
+          "hash": "782a48422e01d52be3526c8468b991a206eab0bc",
+          "kind": "f",
+          "shape": [
+            6512,
+            2
+          ]
+        },
+        "r_tail": {
+          "allowlisted": false,
+          "hash": "fffc34e0f151e35c615a659a7cf9ff046c6aa4d2",
+          "kind": "f",
+          "shape": [
+            6512,
+            2
+          ]
+        },
+        "target": {
+          "allowlisted": false,
+          "hash": "901b611737f1acf062b333d2384d64041cb244e5",
+          "kind": "f",
+          "shape": [
+            1,
+            2
+          ]
+        },
+        "time": {
+          "allowlisted": false,
+          "hash": "cc7bf388254a2a8206700287d308cb151e2ffb10",
+          "kind": "f",
+          "shape": [
+            1,
+            6512
+          ]
+        },
+        "trial": {
+          "allowlisted": false,
+          "hash": "356a192b7913b04c54574d18c28d46e6395428ab",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "velocity": {
+          "allowlisted": false,
+          "hash": "668538c831b6a69b12146d0dd0a17d89e9cda101",
+          "kind": "f",
+          "shape": [
+            1,
+            6512
+          ]
+        }
+      }
+    },
+    "hfm_2025-07-17_M54_31.mat": {
+      "fields": {
+        "arena_circle": {
+          "allowlisted": false,
+          "hash": "0e84a85081ff80e960caa05926263dce1e30f7e6",
+          "kind": "f",
+          "shape": [
+            1,
+            3
+          ]
+        },
+        "bkgd_img": {
+          "allowlisted": false,
+          "hash": "ac09e8b4661b371f3c17118ffa676cbc61470778",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "day": {
+          "allowlisted": false,
+          "hash": "0716d9708d321ffb6a00818614779e779925365c",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "entrance": {
+          "allowlisted": false,
+          "hash": "3fa7a7dd538c0af697bb26698ac5335de5bd8945",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "eth_file": {
+          "allowlisted": true,
+          "hash": "b3950fe8113cc6b65e13aa0ba9ff45fd0d2fd7ee",
+          "kind": "i",
+          "shape": [
+            1,
+            1
+          ]
+        },
+        "exp": {
+          "allowlisted": false,
+          "hash": "c87ba738c3b5071f9437c2cdca6262eb9743b1fb",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "experimenter": {
+          "allowlisted": false,
+          "hash": "538bb9d733a0093accc37fed7f9d329b6b4c5349",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "filename": {
+          "allowlisted": false,
+          "hash": "776c4f6fa19171f1403814da2e809730fd5ed41f",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "head_direction": {
+          "allowlisted": false,
+          "hash": "700f67310438ba9a3612655b69d4cc1dbb6eff9e",
+          "kind": "f",
+          "shape": [
+            1,
+            3715
+          ]
+        },
+        "heading": {
+          "allowlisted": false,
+          "hash": "9b7fd7d6c28231ed41ef3449beea4aad3c4be1be",
+          "kind": "f",
+          "shape": [
+            1,
+            3715
+          ]
+        },
+        "img_extent": {
+          "allowlisted": false,
+          "hash": "a89f1ccfda942dff65909e09869b8cc6884fc2f9",
+          "kind": "f",
+          "shape": [
+            1,
+            4
+          ]
+        },
+        "k_hole_checks": {
+          "allowlisted": false,
+          "hash": "6c31e9d0a0b94fc690d91de3144d8d82d2f4c9d8",
+          "kind": "i",
+          "shape": [
+            13,
+            2
+          ]
+        },
+        "k_reward": {
+          "allowlisted": false,
+          "hash": "4fc5b157739250a2332dd5754b63843b6ba10e06",
+          "kind": "i",
+          "shape": [
+            1,
+            1
+          ]
+        },
+        "mouse_number": {
+          "allowlisted": false,
+          "hash": "80e28a51cbc26fa4bd34938c5e593b36146f5e0c",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "mouse_sex": {
+          "allowlisted": true,
+          "hash": "96a1a08dcded48b7e695aed7c577dc04c982a4f7",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "protocol_description": {
+          "allowlisted": false,
+          "hash": "ede72d03a444111a03dec26b2324703cbabde18f",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "protocol_name": {
+          "allowlisted": false,
+          "hash": "cde87aa92b23938ffcff72ae610b0006e0a40cf6",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "r_arena_holes": {
+          "allowlisted": false,
+          "hash": "c8b857502725bf73881f54ebd142c5d9555f84cc",
+          "kind": "f",
+          "shape": [
+            100,
+            2
+          ]
+        },
+        "r_center": {
+          "allowlisted": false,
+          "hash": "bdc76a7f6c268692de6285073b7882be7f1f4bf2",
+          "kind": "f",
+          "shape": [
+            3715,
+            2
+          ]
+        },
+        "r_nose": {
+          "allowlisted": false,
+          "hash": "6d7f5e18b5054d44cf1c6285cf1ff3fcbca55b9e",
+          "kind": "f",
+          "shape": [
+            3715,
+            2
+          ]
+        },
+        "r_tail": {
+          "allowlisted": false,
+          "hash": "1e231ca60740b49ddc7cfdc9dcc832d7cbed7e47",
+          "kind": "f",
+          "shape": [
+            3715,
+            2
+          ]
+        },
+        "target": {
+          "allowlisted": false,
+          "hash": "30f3cffbb41e9bb329b2639dbe52fdc35712f0aa",
+          "kind": "f",
+          "shape": [
+            1,
+            2
+          ]
+        },
+        "time": {
+          "allowlisted": false,
+          "hash": "672c5ba3f805ee7aa3a8b2643cac0869340d4cef",
+          "kind": "f",
+          "shape": [
+            1,
+            3715
+          ]
+        },
+        "trial": {
+          "allowlisted": false,
+          "hash": "632667547e7cd3e0466547863e1207a8c0c0c549",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "velocity": {
+          "allowlisted": false,
+          "hash": "c059a5c8aed31c4ffaadc42ac2a959de2896acdf",
+          "kind": "f",
+          "shape": [
+            1,
+            3715
+          ]
+        }
+      }
+    },
+    "hfm_2025-07-17_M54_probe2.mat": {
+      "fields": {
+        "arena_circle": {
+          "allowlisted": false,
+          "hash": "0e84a85081ff80e960caa05926263dce1e30f7e6",
+          "kind": "f",
+          "shape": [
+            1,
+            3
+          ]
+        },
+        "bkgd_img": {
+          "allowlisted": false,
+          "hash": "ac09e8b4661b371f3c17118ffa676cbc61470778",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "day": {
+          "allowlisted": false,
+          "hash": "91032ad7bbcb6cf72875e8e8207dcfba80173f7c",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "entrance": {
+          "allowlisted": false,
+          "hash": "3fa7a7dd538c0af697bb26698ac5335de5bd8945",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "eth_file": {
+          "allowlisted": true,
+          "hash": "f0550587cb45c43eb69b762020337ec75d6112e8",
+          "kind": "i",
+          "shape": [
+            1,
+            1
+          ]
+        },
+        "exp": {
+          "allowlisted": false,
+          "hash": "c87ba738c3b5071f9437c2cdca6262eb9743b1fb",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "experimenter": {
+          "allowlisted": false,
+          "hash": "538bb9d733a0093accc37fed7f9d329b6b4c5349",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "filename": {
+          "allowlisted": false,
+          "hash": "e47b179d0a0e00115c1652cdf00966e0dc50f56e",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "head_direction": {
+          "allowlisted": false,
+          "hash": "b10e2cb99741b8b4e6cd4e63ec35cf4b803b5e36",
+          "kind": "f",
+          "shape": [
+            1,
+            7023
+          ]
+        },
+        "heading": {
+          "allowlisted": false,
+          "hash": "bb46bb4f99b41cc3da72f0fa6782fc0380c1ce1a",
+          "kind": "f",
+          "shape": [
+            1,
+            7023
+          ]
+        },
+        "img_extent": {
+          "allowlisted": false,
+          "hash": "a89f1ccfda942dff65909e09869b8cc6884fc2f9",
+          "kind": "f",
+          "shape": [
+            1,
+            4
+          ]
+        },
+        "k_hole_checks": {
+          "allowlisted": false,
+          "hash": "ab1b877346b3a779a30eb2d6ac17d281c6c9a963",
+          "kind": "i",
+          "shape": [
+            111,
+            2
+          ]
+        },
+        "k_reward": {
+          "allowlisted": false,
+          "hash": "4090b77f6a4340dc23b99a23a14892c12616a067",
+          "kind": "i",
+          "shape": [
+            1,
+            1
+          ]
+        },
+        "mouse_number": {
+          "allowlisted": false,
+          "hash": "80e28a51cbc26fa4bd34938c5e593b36146f5e0c",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "mouse_sex": {
+          "allowlisted": true,
+          "hash": "96a1a08dcded48b7e695aed7c577dc04c982a4f7",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "protocol_description": {
+          "allowlisted": false,
+          "hash": "ede72d03a444111a03dec26b2324703cbabde18f",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "protocol_name": {
+          "allowlisted": false,
+          "hash": "cde87aa92b23938ffcff72ae610b0006e0a40cf6",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "r_arena_holes": {
+          "allowlisted": false,
+          "hash": "c8b857502725bf73881f54ebd142c5d9555f84cc",
+          "kind": "f",
+          "shape": [
+            100,
+            2
+          ]
+        },
+        "r_center": {
+          "allowlisted": false,
+          "hash": "2be9a57a14111e6693f12672a168dd5758f4ede2",
+          "kind": "f",
+          "shape": [
+            7023,
+            2
+          ]
+        },
+        "r_nose": {
+          "allowlisted": false,
+          "hash": "643af298b53e9d51824a32a3a97967a25d9ffb15",
+          "kind": "f",
+          "shape": [
+            7023,
+            2
+          ]
+        },
+        "r_tail": {
+          "allowlisted": false,
+          "hash": "7d6129cbd346e7d11917111026d163113682fd7f",
+          "kind": "f",
+          "shape": [
+            7023,
+            2
+          ]
+        },
+        "target": {
+          "allowlisted": false,
+          "hash": "30f3cffbb41e9bb329b2639dbe52fdc35712f0aa",
+          "kind": "f",
+          "shape": [
+            1,
+            2
+          ]
+        },
+        "time": {
+          "allowlisted": false,
+          "hash": "3211a8c77010b1f792dd9125b9a78c2991d602ba",
+          "kind": "f",
+          "shape": [
+            1,
+            7023
+          ]
+        },
+        "trial": {
+          "allowlisted": false,
+          "hash": "72e9e35ff821d2e1c148584a753da1f1db08c947",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "velocity": {
+          "allowlisted": false,
+          "hash": "70fc1b22975569e3925c8d01804ced7bb6df8cc5",
+          "kind": "f",
+          "shape": [
+            1,
+            7023
+          ]
+        }
+      }
+    },
+    "hfm_2025-07-17_M58_1.mat": {
+      "fields": {
+        "arena_circle": {
+          "allowlisted": false,
+          "hash": "0e84a85081ff80e960caa05926263dce1e30f7e6",
+          "kind": "f",
+          "shape": [
+            1,
+            3
+          ]
+        },
+        "bkgd_img": {
+          "allowlisted": false,
+          "hash": "ac09e8b4661b371f3c17118ffa676cbc61470778",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "day": {
+          "allowlisted": false,
+          "hash": "c1dfd96eea8cc2b62785275bca38ac261256e278",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "entrance": {
+          "allowlisted": false,
+          "hash": "3fa7a7dd538c0af697bb26698ac5335de5bd8945",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "eth_file": {
+          "allowlisted": true,
+          "hash": "2243dfc2a2cc26aeae216995d5aa20f4e641458f",
+          "kind": "i",
+          "shape": [
+            1,
+            1
+          ]
+        },
+        "exp": {
+          "allowlisted": false,
+          "hash": "c87ba738c3b5071f9437c2cdca6262eb9743b1fb",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "experimenter": {
+          "allowlisted": false,
+          "hash": "538bb9d733a0093accc37fed7f9d329b6b4c5349",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "filename": {
+          "allowlisted": false,
+          "hash": "eaeb4fda972735d223b49f1118cc8da48a26fcb9",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "head_direction": {
+          "allowlisted": false,
+          "hash": "6a23d009f25c288ac184b357c64dfde5e5c627be",
+          "kind": "f",
+          "shape": [
+            1,
+            5704
+          ]
+        },
+        "heading": {
+          "allowlisted": false,
+          "hash": "336f2c0f197d26f1a53e949a6b9495da8e695111",
+          "kind": "f",
+          "shape": [
+            1,
+            5704
+          ]
+        },
+        "img_extent": {
+          "allowlisted": false,
+          "hash": "a89f1ccfda942dff65909e09869b8cc6884fc2f9",
+          "kind": "f",
+          "shape": [
+            1,
+            4
+          ]
+        },
+        "k_hole_checks": {
+          "allowlisted": false,
+          "hash": "b2c6668708f9b965a7fbb2c186b8c1e4b9d74c14",
+          "kind": "i",
+          "shape": [
+            52,
+            2
+          ]
+        },
+        "k_reward": {
+          "allowlisted": false,
+          "hash": "4e83783147438f23aa4da5076c62f022af108044",
+          "kind": "i",
+          "shape": [
+            1,
+            1
+          ]
+        },
+        "mouse_number": {
+          "allowlisted": false,
+          "hash": "667be543b02294b7624119adc3a725473df39885",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "mouse_sex": {
+          "allowlisted": true,
+          "hash": "96a1a08dcded48b7e695aed7c577dc04c982a4f7",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "protocol_description": {
+          "allowlisted": false,
+          "hash": "ede72d03a444111a03dec26b2324703cbabde18f",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "protocol_name": {
+          "allowlisted": false,
+          "hash": "cde87aa92b23938ffcff72ae610b0006e0a40cf6",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "r_arena_holes": {
+          "allowlisted": false,
+          "hash": "c8b857502725bf73881f54ebd142c5d9555f84cc",
+          "kind": "f",
+          "shape": [
+            100,
+            2
+          ]
+        },
+        "r_center": {
+          "allowlisted": false,
+          "hash": "2a4bb2e915b5057578cada74d4f3c4dc045cddc8",
+          "kind": "f",
+          "shape": [
+            5704,
+            2
+          ]
+        },
+        "r_nose": {
+          "allowlisted": false,
+          "hash": "287218c7a5a2cf24335e54a8061e96206912b8d3",
+          "kind": "f",
+          "shape": [
+            5704,
+            2
+          ]
+        },
+        "r_tail": {
+          "allowlisted": false,
+          "hash": "dbf851e844a0fb2e6d9210cb39108bf83bc507b6",
+          "kind": "f",
+          "shape": [
+            5704,
+            2
+          ]
+        },
+        "target": {
+          "allowlisted": false,
+          "hash": "901b611737f1acf062b333d2384d64041cb244e5",
+          "kind": "f",
+          "shape": [
+            1,
+            2
+          ]
+        },
+        "time": {
+          "allowlisted": false,
+          "hash": "09d9362787148ccd26e0a296eb8e34c404dd2ff8",
+          "kind": "f",
+          "shape": [
+            1,
+            5704
+          ]
+        },
+        "trial": {
+          "allowlisted": false,
+          "hash": "356a192b7913b04c54574d18c28d46e6395428ab",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "velocity": {
+          "allowlisted": false,
+          "hash": "220c54c19c8d63bb80d54938f338f47fce283167",
+          "kind": "f",
+          "shape": [
+            1,
+            5704
+          ]
+        }
+      }
+    },
+    "hfm_2025-07-17_M58_21.mat": {
+      "fields": {
+        "arena_circle": {
+          "allowlisted": false,
+          "hash": "0e84a85081ff80e960caa05926263dce1e30f7e6",
+          "kind": "f",
+          "shape": [
+            1,
+            3
+          ]
+        },
+        "bkgd_img": {
+          "allowlisted": false,
+          "hash": "ac09e8b4661b371f3c17118ffa676cbc61470778",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "day": {
+          "allowlisted": false,
+          "hash": "7b52009b64fd0a2a49e6d8a939753077792b0554",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "entrance": {
+          "allowlisted": false,
+          "hash": "3fa7a7dd538c0af697bb26698ac5335de5bd8945",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "eth_file": {
+          "allowlisted": true,
+          "hash": "c8111b7206ec9b164e63f943ad2e9811d64a41d9",
+          "kind": "i",
+          "shape": [
+            1,
+            1
+          ]
+        },
+        "exp": {
+          "allowlisted": false,
+          "hash": "c87ba738c3b5071f9437c2cdca6262eb9743b1fb",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "experimenter": {
+          "allowlisted": false,
+          "hash": "538bb9d733a0093accc37fed7f9d329b6b4c5349",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "filename": {
+          "allowlisted": false,
+          "hash": "6d793e4704803d69ebf77b75acd6fa993c16da10",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "head_direction": {
+          "allowlisted": false,
+          "hash": "c80bdcca4bb4a9ec717a423ce9b0af177a50ed85",
+          "kind": "f",
+          "shape": [
+            1,
+            1379
+          ]
+        },
+        "heading": {
+          "allowlisted": false,
+          "hash": "e5a8c25080f4e77e8f77cd0ae00b34a7f592d67e",
+          "kind": "f",
+          "shape": [
+            1,
+            1379
+          ]
+        },
+        "img_extent": {
+          "allowlisted": false,
+          "hash": "a89f1ccfda942dff65909e09869b8cc6884fc2f9",
+          "kind": "f",
+          "shape": [
+            1,
+            4
+          ]
+        },
+        "k_hole_checks": {
+          "allowlisted": false,
+          "hash": "2e79cef0c89d5815c91e7ec4067f350b8226ddde",
+          "kind": "i",
+          "shape": [
+            5,
+            2
+          ]
+        },
+        "k_reward": {
+          "allowlisted": false,
+          "hash": "ecb4e6966d92dc05ab99ab2e2845ba09d0e93378",
+          "kind": "i",
+          "shape": [
+            1,
+            1
+          ]
+        },
+        "mouse_number": {
+          "allowlisted": false,
+          "hash": "667be543b02294b7624119adc3a725473df39885",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "mouse_sex": {
+          "allowlisted": true,
+          "hash": "96a1a08dcded48b7e695aed7c577dc04c982a4f7",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "protocol_description": {
+          "allowlisted": false,
+          "hash": "ede72d03a444111a03dec26b2324703cbabde18f",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "protocol_name": {
+          "allowlisted": false,
+          "hash": "cde87aa92b23938ffcff72ae610b0006e0a40cf6",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "r_arena_holes": {
+          "allowlisted": false,
+          "hash": "c8b857502725bf73881f54ebd142c5d9555f84cc",
+          "kind": "f",
+          "shape": [
+            100,
+            2
+          ]
+        },
+        "r_center": {
+          "allowlisted": false,
+          "hash": "a8040eeaafc98269e1d7f94c0a450b3f2a0a247d",
+          "kind": "f",
+          "shape": [
+            1379,
+            2
+          ]
+        },
+        "r_nose": {
+          "allowlisted": false,
+          "hash": "fbda1cf593525e61bf34dcd33c36fbd737ed8640",
+          "kind": "f",
+          "shape": [
+            1379,
+            2
+          ]
+        },
+        "r_tail": {
+          "allowlisted": false,
+          "hash": "24abe606d9dea535dfbaf3d2cfaa47fdbb5b7fd2",
+          "kind": "f",
+          "shape": [
+            1379,
+            2
+          ]
+        },
+        "target": {
+          "allowlisted": false,
+          "hash": "30f3cffbb41e9bb329b2639dbe52fdc35712f0aa",
+          "kind": "f",
+          "shape": [
+            1,
+            2
+          ]
+        },
+        "time": {
+          "allowlisted": false,
+          "hash": "2147a000a4105b2bbc521aadb5f3062b77db41cb",
+          "kind": "f",
+          "shape": [
+            1,
+            1379
+          ]
+        },
+        "trial": {
+          "allowlisted": false,
+          "hash": "472b07b9fcf2c2451e8781e944bf5f77cd8457c8",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "velocity": {
+          "allowlisted": false,
+          "hash": "2891b6cf3b14cfd3f4499c709ead04db7dd48d18",
+          "kind": "f",
+          "shape": [
+            1,
+            1379
+          ]
+        }
+      }
+    },
+    "hfm_2025-07-17_M58_habit3.mat": {
+      "fields": {
+        "arena_circle": {
+          "allowlisted": false,
+          "hash": "0e84a85081ff80e960caa05926263dce1e30f7e6",
+          "kind": "f",
+          "shape": [
+            1,
+            3
+          ]
+        },
+        "bkgd_img": {
+          "allowlisted": false,
+          "hash": "ac09e8b4661b371f3c17118ffa676cbc61470778",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "day": {
+          "allowlisted": false,
+          "hash": "77de68daecd823babbb58edb1c8e14d7106e83bb",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "entrance": {
+          "allowlisted": false,
+          "hash": "3fa7a7dd538c0af697bb26698ac5335de5bd8945",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "eth_file": {
+          "allowlisted": true,
+          "hash": "fb39936f2df2c73caf85c25b46782c7981952d86",
+          "kind": "i",
+          "shape": [
+            1,
+            1
+          ]
+        },
+        "exp": {
+          "allowlisted": false,
+          "hash": "c87ba738c3b5071f9437c2cdca6262eb9743b1fb",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "experimenter": {
+          "allowlisted": false,
+          "hash": "538bb9d733a0093accc37fed7f9d329b6b4c5349",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "filename": {
+          "allowlisted": false,
+          "hash": "fa962b06cebf8824598d6da4b68e07d0c47a7b1d",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "head_direction": {
+          "allowlisted": false,
+          "hash": "9ddea8681615551c93af981095234828054f47eb",
+          "kind": "f",
+          "shape": [
+            1,
+            12117
+          ]
+        },
+        "heading": {
+          "allowlisted": false,
+          "hash": "c269a10473d957127b4b87b0cb881f2fc237c329",
+          "kind": "f",
+          "shape": [
+            1,
+            12117
+          ]
+        },
+        "img_extent": {
+          "allowlisted": false,
+          "hash": "a89f1ccfda942dff65909e09869b8cc6884fc2f9",
+          "kind": "f",
+          "shape": [
+            1,
+            4
+          ]
+        },
+        "k_hole_checks": {
+          "allowlisted": false,
+          "hash": "482a62450d9ea04a2c5d486701512a2664140eb6",
+          "kind": "i",
+          "shape": [
+            115,
+            2
+          ]
+        },
+        "k_reward": {
+          "allowlisted": false,
+          "hash": "f23b1dcbeaccd509036e954e01d79c9c22200b4a",
+          "kind": "i",
+          "shape": [
+            1,
+            1
+          ]
+        },
+        "mouse_number": {
+          "allowlisted": false,
+          "hash": "667be543b02294b7624119adc3a725473df39885",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "mouse_sex": {
+          "allowlisted": true,
+          "hash": "96a1a08dcded48b7e695aed7c577dc04c982a4f7",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "protocol_description": {
+          "allowlisted": false,
+          "hash": "ede72d03a444111a03dec26b2324703cbabde18f",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "protocol_name": {
+          "allowlisted": false,
+          "hash": "cde87aa92b23938ffcff72ae610b0006e0a40cf6",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "r_arena_holes": {
+          "allowlisted": false,
+          "hash": "c8b857502725bf73881f54ebd142c5d9555f84cc",
+          "kind": "f",
+          "shape": [
+            100,
+            2
+          ]
+        },
+        "r_center": {
+          "allowlisted": false,
+          "hash": "67eca41f503466b6f6e766d58423b04bbd5d5bbf",
+          "kind": "f",
+          "shape": [
+            12117,
+            2
+          ]
+        },
+        "r_nose": {
+          "allowlisted": false,
+          "hash": "01b2c3af4fb4a92811d934417cf677a71602bbe3",
+          "kind": "f",
+          "shape": [
+            12117,
+            2
+          ]
+        },
+        "r_tail": {
+          "allowlisted": false,
+          "hash": "9667b6cc50321755584b5a9a338a7ff33379fa6a",
+          "kind": "f",
+          "shape": [
+            12117,
+            2
+          ]
+        },
+        "target": {
+          "allowlisted": false,
+          "hash": "30f3cffbb41e9bb329b2639dbe52fdc35712f0aa",
+          "kind": "f",
+          "shape": [
+            1,
+            2
+          ]
+        },
+        "time": {
+          "allowlisted": false,
+          "hash": "e74d655275e24d7046565d5f2a60961f8024a204",
+          "kind": "f",
+          "shape": [
+            1,
+            12117
+          ]
+        },
+        "trial": {
+          "allowlisted": false,
+          "hash": "e3952233c0d3d630ba98a6f4a0bc17e95273393d",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "velocity": {
+          "allowlisted": false,
+          "hash": "e10dec4166c0c60973e6445600b57756cda9e7a7",
+          "kind": "f",
+          "shape": [
+            1,
+            12117
+          ]
+        }
+      }
+    },
+    "hfm_2025-07-17_M58_probe1.mat": {
+      "fields": {
+        "arena_circle": {
+          "allowlisted": false,
+          "hash": "0e84a85081ff80e960caa05926263dce1e30f7e6",
+          "kind": "f",
+          "shape": [
+            1,
+            3
+          ]
+        },
+        "bkgd_img": {
+          "allowlisted": false,
+          "hash": "ac09e8b4661b371f3c17118ffa676cbc61470778",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "day": {
+          "allowlisted": false,
+          "hash": "7b52009b64fd0a2a49e6d8a939753077792b0554",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "entrance": {
+          "allowlisted": false,
+          "hash": "3fa7a7dd538c0af697bb26698ac5335de5bd8945",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "eth_file": {
+          "allowlisted": true,
+          "hash": "6066a500f55465d758938065098bdd71b50bf65b",
+          "kind": "i",
+          "shape": [
+            1,
+            1
+          ]
+        },
+        "exp": {
+          "allowlisted": false,
+          "hash": "c87ba738c3b5071f9437c2cdca6262eb9743b1fb",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "experimenter": {
+          "allowlisted": false,
+          "hash": "538bb9d733a0093accc37fed7f9d329b6b4c5349",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "filename": {
+          "allowlisted": false,
+          "hash": "677336389fa1c88ddc839d23a1dbe914431b3ddd",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "head_direction": {
+          "allowlisted": false,
+          "hash": "d57e0e9f1ef670acec4404f327270096185d9694",
+          "kind": "f",
+          "shape": [
+            1,
+            6117
+          ]
+        },
+        "heading": {
+          "allowlisted": false,
+          "hash": "2e14a6bbc1567570ad7906d8da9ea4c0f6534c5f",
+          "kind": "f",
+          "shape": [
+            1,
+            6117
+          ]
+        },
+        "img_extent": {
+          "allowlisted": false,
+          "hash": "a89f1ccfda942dff65909e09869b8cc6884fc2f9",
+          "kind": "f",
+          "shape": [
+            1,
+            4
+          ]
+        },
+        "k_hole_checks": {
+          "allowlisted": false,
+          "hash": "cdb162b9862301473ae5a748004c5f380c146a01",
+          "kind": "i",
+          "shape": [
+            82,
+            2
+          ]
+        },
+        "k_reward": {
+          "allowlisted": false,
+          "hash": "32332ea6d8e0c371d7f5b40bc7407c50b315fe12",
+          "kind": "i",
+          "shape": [
+            1,
+            1
+          ]
+        },
+        "mouse_number": {
+          "allowlisted": false,
+          "hash": "667be543b02294b7624119adc3a725473df39885",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "mouse_sex": {
+          "allowlisted": true,
+          "hash": "96a1a08dcded48b7e695aed7c577dc04c982a4f7",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "protocol_description": {
+          "allowlisted": false,
+          "hash": "ede72d03a444111a03dec26b2324703cbabde18f",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "protocol_name": {
+          "allowlisted": false,
+          "hash": "cde87aa92b23938ffcff72ae610b0006e0a40cf6",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "r_arena_holes": {
+          "allowlisted": false,
+          "hash": "c8b857502725bf73881f54ebd142c5d9555f84cc",
+          "kind": "f",
+          "shape": [
+            100,
+            2
+          ]
+        },
+        "r_center": {
+          "allowlisted": false,
+          "hash": "a8ca4076d862e88981b92417be7d164c0e65d043",
+          "kind": "f",
+          "shape": [
+            6117,
+            2
+          ]
+        },
+        "r_nose": {
+          "allowlisted": false,
+          "hash": "c48a4875b0917b1cf48a93b94a0cf5953eb16325",
+          "kind": "f",
+          "shape": [
+            6117,
+            2
+          ]
+        },
+        "r_tail": {
+          "allowlisted": false,
+          "hash": "745c685c619b14e149e13be01458e14af5782d04",
+          "kind": "f",
+          "shape": [
+            6117,
+            2
+          ]
+        },
+        "target": {
+          "allowlisted": false,
+          "hash": "901b611737f1acf062b333d2384d64041cb244e5",
+          "kind": "f",
+          "shape": [
+            1,
+            2
+          ]
+        },
+        "time": {
+          "allowlisted": false,
+          "hash": "4c1883102fe62bb13477327d81939251d95c0df4",
+          "kind": "f",
+          "shape": [
+            1,
+            6117
+          ]
+        },
+        "trial": {
+          "allowlisted": false,
+          "hash": "039f704b4efbee75bf8ea1367e0d6cd8e2b494c6",
+          "kind": "U",
+          "shape": [
+            1
+          ]
+        },
+        "velocity": {
+          "allowlisted": false,
+          "hash": "8583113b02db137e667a69b7db6b24a8d689f07d",
+          "kind": "f",
+          "shape": [
+            1,
+            6117
+          ]
+        }
+      }
+    }
+  }
+}

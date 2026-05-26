@@ -1,0 +1,30 @@
+# --- Reference / build-time material: not committed ---
+/BUILD_SPEC.md
+
+# --- Data folders: contents git-ignored, folders kept via .gitkeep ---
+# Leading slash anchors these patterns to the repo root so tests/fixtures/raw
+# (the committed golden-test inputs) is NOT accidentally ignored.
+/raw/*
+!/raw/.gitkeep
+/background_images/*
+!/background_images/.gitkeep
+/output/*
+!/output/.gitkeep
+
+# tests/fixtures/ is intentionally tracked (curated golden inputs + manifest).
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ipynb_checkpoints/
+.venv/
+build/
+dist/
+
+# --- OS / editor ---
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
