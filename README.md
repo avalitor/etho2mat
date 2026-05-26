@@ -24,8 +24,8 @@ That makes an environment called `traj` with everything the tool needs. The laun
 
 2. **Add data to 3 folders:**
      - `1_raw/`: Export **Ethovision Excel** trials into a folder  `1_raw/EXPDATE_Raw Trial Data/` (the trials must be contained in a folder name that starts with the experiment's start date, e.g. `2025-01-21_Raw Trial Data`).
-     - `2_background_images/`: Put one clean **arena screenshot:** in here
-     - `3_config/`: Edit 2 files in this folder. First, **Write a new row** to `experiment_list.csv` (double-click to edit; **save as CSV**). Second, copy `/targets/TEMPLATE_targets.csv` to `3_config/targets/EXPDATE_targets.csv` and fill in the reward rows. Optional: **Mouse map (only if needed):** open `3_config/mouse_map.csv` only when (a) `mouse_sex = mixed` in `experiment_list.csv` — per-mouse rows are then REQUIRED — or (b) different mice in this experiment have different strains/conditions you want recorded. Otherwise leave it alone.
+     - `2_background_images/`: Put one clean **arena screenshot:** in here.
+     - `3_config/`: Edit 2 files in this folder. First, **Write a new row** to `experiment_list.csv` (double-click to edit; save as CSV). Second, **make a copy** of  `TEMPLATE_targets.csv` and rename to `EXPDATE_targets.csv` and fill in the reward rows. Optional: **Mouse map (only if needed):** edit `mouse_map.csv` only when (a) `mouse_sex = mixed` in `experiment_list.csv` or (b) different mice in this experiment have different strains/conditions you want recorded. Otherwise leave it alone.
 
 3. **Run** by double-clicking `run_conversion.bat` (Windows) or `run_conversion.command` (Mac). You can also run `python -m src.convert EXPDATE` in the `traj` environment.
 
