@@ -66,10 +66,17 @@ def _pick_representatives(records, rules, rule, no_reward_patterns, sample):
     return sorted(single, key=lambda r: _trial_quality_key(r, no_reward_patterns))[:sample]
 
 
-def _draw_arena(plt, ax, arena):
-    cx, cy, r = arena.arena_circle
+def _draw_arena(plt, ax, source):
+    """Draw the arena circle + holes from any object exposing
+    ``arena_circle`` (cx, cy, r) and ``r_arena_holes`` (M, 2).
+
+    Works for both :class:`arena.ArenaResult` and :class:`schema.TrialRecord`,
+    which lets every panel render against its own per-trial arena geometry
+    (needed when one experiment uses multiple arenas via mouse_map.csv overrides).
+    """
+    cx, cy, r = source.arena_circle
     ax.add_artist(plt.Circle((cx, cy), r, fill=False, color="0.55", lw=1.2))
-    ax.scatter(arena.r_arena_holes[:, 0], arena.r_arena_holes[:, 1], s=4, color="0.85", zorder=0)
+    ax.scatter(source.r_arena_holes[:, 0], source.r_arena_holes[:, 1], s=4, color="0.85", zorder=0)
     margin = r * 1.15
     ax.set_xlim(cx - margin, cx + margin); ax.set_ylim(cy - margin, cy + margin)
     ax.set_aspect("equal", "box")
@@ -145,7 +152,6 @@ def build_alignment_figure(result, out_path, sample: int = 3) -> Path:
     out_path.parent.mkdir(parents=True, exist_ok=True)
 
     rules = result.rules
-    arena = result.arena
     no_reward_patterns = result.cfg.no_reward_trials
 
     rule_drawn = [
@@ -174,7 +180,7 @@ def build_alignment_figure(result, out_path, sample: int = 3) -> Path:
             ax = axes[ri][ci]
             if ci < len(drawn):
                 rec = drawn[ci]
-                _draw_arena(plt, ax, arena)
+                _draw_arena(plt, ax, rec)
                 # On a reverse panel, show the trial's actual reward target(s) dimmed
                 # in blue for context -- a reverse trial is also a rewarded trial, and
                 # the mouse is heading toward THAT target, not the reverse marker.

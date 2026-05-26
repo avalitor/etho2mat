@@ -146,3 +146,155 @@ def test_missing_experiment(tmp_path):
                "X,p,d,\"1,2,3,4\",male,,me,bg.png,100\n")
     with pytest.raises(ConfigError, match="no row"):
         c.load_experiment("Y", p)
+
+
+# --- mouse_map per-mouse arena override -------------------------------------
+def _cfg(experiment="X", img_extent=(-100.0, 100.0, -50.0, 50.0), background_image="default.png"):
+    return c.ExperimentConfig(
+        experiment=experiment, protocol="p", protocol_description="d",
+        img_extent=np.array(img_extent, dtype=np.float64),
+        mouse_sex="male", mouse_strain="", experimenter="me",
+        background_image=background_image, expected_hole_count=100,
+        no_reward_trials=(),
+    )
+
+
+def test_load_mouse_map_arena_columns(tmp_path):
+    p = _write(tmp_path / "mm.csv",
+               "experiment,mouse_id,sex,strain,background_image,img_extent\n"
+               "X,1,male,WT,,\n"
+               "X,5,male,WT,arenaB.png,\"-110,110,-55,55\"\n")
+    out = c.load_mouse_map(p)
+    assert out[("X", "1")]["background_image"] == ""
+    assert out[("X", "1")]["img_extent"] is None
+    assert out[("X", "5")]["background_image"] == "arenaB.png"
+    assert np.allclose(out[("X", "5")]["img_extent"], [-110, 110, -55, 55])
+
+
+def test_load_mouse_map_rejects_malformed_img_extent(tmp_path):
+    p = _write(tmp_path / "mm.csv",
+               "experiment,mouse_id,sex,strain,background_image,img_extent\n"
+               "X,5,male,,arenaB.png,\"1,2,3\"\n")
+    with pytest.raises(ConfigError, match="img_extent"):
+        c.load_mouse_map(p)
+
+
+def test_resolve_mouse_arena_uses_default_when_blank():
+    cfg = _cfg()
+    mouse_map = {("X", "1"): {"sex": "", "strain": "", "background_image": "", "img_extent": None}}
+    bg, ext = c.resolve_mouse_arena(cfg, "1", mouse_map)
+    assert bg == "default.png"
+    assert np.allclose(ext, cfg.img_extent)
+
+
+def test_resolve_mouse_arena_uses_override_when_set():
+    cfg = _cfg()
+    override_extent = np.array([-110, 110, -55, 55], dtype=np.float64)
+    mouse_map = {("X", "5"): {"sex": "", "strain": "", "background_image": "arenaB.png", "img_extent": override_extent}}
+    bg, ext = c.resolve_mouse_arena(cfg, "5", mouse_map)
+    assert bg == "arenaB.png"
+    assert np.allclose(ext, override_extent)
+
+
+def test_resolve_mouse_arena_unmapped_mouse_uses_default():
+    cfg = _cfg()
+    mouse_map: dict = {}
+    bg, ext = c.resolve_mouse_arena(cfg, "99", mouse_map)
+    assert bg == "default.png"
+    assert np.allclose(ext, cfg.img_extent)
+
+
+# --- arena/target consistency warning ---------------------------------------
+from types import SimpleNamespace                       # noqa: E402
+from src import report                                  # noqa: E402
+
+
+def _make_consistency_result(rules, mouse_records):
+    """Minimal ProcessResult-shaped object for the consistency-warning test.
+
+    ``mouse_records`` is a list of dicts with keys
+    ``mouse``, ``arena_circle`` (3,), ``bkgd_img``, and ``trials`` (list of
+    (entrance, trial)) -- one record per (mouse, trial).
+    """
+    records = []
+    for m in mouse_records:
+        for entrance, trial in m["trials"]:
+            records.append(SimpleNamespace(
+                mouse_number=m["mouse"], arena_circle=np.asarray(m["arena_circle"]),
+                bkgd_img=m["bkgd_img"], entrance=entrance, trial=trial,
+            ))
+    return SimpleNamespace(rules=rules, records=records,
+                           cfg=SimpleNamespace(no_reward_trials=()))
+
+
+def test_arena_target_consistency_silent_when_in_arena(capsys):
+    rules = [_rule("NW", 0.0, 0.0, "1-5", mice=("1",), row=1),
+             _rule("NW", 50.0, 0.0, "1-5", mice=("5",), row=2)]
+    result = _make_consistency_result(
+        rules,
+        [
+            {"mouse": "1", "arena_circle": [0.0, 0.0, 30.0], "bkgd_img": "A.png",
+             "trials": [("NW", "1"), ("NW", "2")]},
+            {"mouse": "5", "arena_circle": [50.0, 0.0, 30.0], "bkgd_img": "B.png",
+             "trials": [("NW", "1"), ("NW", "2")]},
+        ],
+    )
+    report.arena_target_consistency_warnings(result)
+    captured = capsys.readouterr()
+    assert "MISMATCH" not in captured.err
+
+
+def test_arena_target_consistency_flags_swap(capsys):
+    # Mouse 5 is on arena B (center 50,0) but row 2 targets (0,0) -- arena-A coords.
+    rules = [_rule("NW", 0.0, 0.0, "1-5", mice=("1",), row=1),
+             _rule("NW", 0.0, 0.0, "1-5", mice=("5",), row=2)]
+    result = _make_consistency_result(
+        rules,
+        [
+            {"mouse": "1", "arena_circle": [0.0, 0.0, 30.0], "bkgd_img": "A.png",
+             "trials": [("NW", "1")]},
+            {"mouse": "5", "arena_circle": [50.0, 0.0, 30.0], "bkgd_img": "B.png",
+             "trials": [("NW", "1")]},
+        ],
+    )
+    report.arena_target_consistency_warnings(result)
+    captured = capsys.readouterr()
+    assert "MISMATCH" in captured.err
+    assert "mouse 5" in captured.err
+    assert "row 2" in captured.err
+    assert "A.png" in captured.err           # swap-with arena identified
+
+
+def test_arena_target_consistency_flags_outside_any_arena(capsys):
+    # Mouse 5 on arena B; target row 2 lands far from any arena.
+    rules = [_rule("NW", 0.0, 0.0, "1-5", mice=("1",), row=1),
+             _rule("NW", 500.0, 500.0, "1-5", mice=("5",), row=2)]
+    result = _make_consistency_result(
+        rules,
+        [
+            {"mouse": "1", "arena_circle": [0.0, 0.0, 30.0], "bkgd_img": "A.png",
+             "trials": [("NW", "1")]},
+            {"mouse": "5", "arena_circle": [50.0, 0.0, 30.0], "bkgd_img": "B.png",
+             "trials": [("NW", "1")]},
+        ],
+    )
+    report.arena_target_consistency_warnings(result)
+    captured = capsys.readouterr()
+    assert "MISMATCH" in captured.err
+    assert "outside every detected arena" in captured.err
+
+
+def test_arena_target_consistency_skipped_single_arena(capsys):
+    # Only one arena -> no cross-arena consistency to check. Target outside
+    # the arena is the existing reach report's job, not this one.
+    rules = [_rule("NW", 500.0, 500.0, "1-5", row=1)]
+    result = _make_consistency_result(
+        rules,
+        [
+            {"mouse": "1", "arena_circle": [0.0, 0.0, 30.0], "bkgd_img": "A.png",
+             "trials": [("NW", "1")]},
+        ],
+    )
+    report.arena_target_consistency_warnings(result)
+    captured = capsys.readouterr()
+    assert "MISMATCH" not in captured.err

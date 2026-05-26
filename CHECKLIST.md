@@ -69,6 +69,7 @@ Essential:
 - Boost brightness contrast if needed (e.g. in Photoshop) so the edge and holes stand out.
 - If you can't get a clear image, get the best image you can and edit out the obstructions (e.g in Photoshop).
 - Must yield exactly one arena and 100 holes. *(enforced)*
+- **If different cohorts ran on different arenas** (e.g. mice 1–4 on arena A, mice 5–8 on arena B), put **one screenshot per arena** in this folder and list the per-mouse override in `3_config/mouse_map.csv` (`background_image` and `img_extent` columns). See README § *Multiple arenas in one experiment*.
 
 
 ## 3. Info for the CSV files
@@ -81,6 +82,7 @@ Free text in `experiment_list.csv`. Include:
 - Special trial conditions — opto, lights out, barriers — and a brief note on any specially-named trials.
 - Mouse sex: goes in its own column. Set `mouse_sex = mixed` if the cohort has both sexes, then add one row per mouse to `3_config/mouse_map.csv` (REQUIRED whenever sex is `mixed`).
 - Mouse strain/condition (e.g. `WT`, `ATRX-KO`): (optional), leave the column blank if not relevant, set it experiment-wide if all mice share a strain, or per-mouse overrides go in `3_config/mouse_map.csv` if it varies (WT vs KO).
+- Multi-arena experiments: if different mice in this experiment ran on physically different arenas, add per-mouse `background_image` and `img_extent` overrides to `3_config/mouse_map.csv` and put one screenshot per arena in `2_background_images/`. Scope per-arena target coordinates via the `mice` column in `targets/<DATE>_targets.csv`. See README § *Multiple arenas in one experiment*.
 
 
 CSVs open in Excel, Numbers, or LibreOffice, which may automatically reformat entries (dates, leading

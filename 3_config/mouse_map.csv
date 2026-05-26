@@ -1,13 +1,18 @@
-experiment,mouse_id,sex,strain
-"# Open this file ONLY when:"
-"#   (a) experiment_list.csv has mouse_sex = mixed -- per-mouse rows are then REQUIRED,"
-"#   (b) different mice within one experiment have different strains/conditions."
+experiment,mouse_id,sex,strain,background_image,img_extent
+"# Open this file ONLY when you need a per-mouse OVERRIDE of the experiment-wide defaults:"
+"#   (a) experiment_list.csv has mouse_sex = mixed -- per-mouse SEX rows are then REQUIRED,"
+"#   (b) different mice within one experiment have different strains/conditions,"
+"#   (c) MULTI-ARENA experiments -- mice 1-4 ran on arena A and mice 5-8 on arena B,"
+"#       so each cohort needs its own background_image (and possibly img_extent if the camera differs)."
 "# Otherwise leave it as the bare header below; the experiment-wide values from"
 "# experiment_list.csv apply to every mouse."
 "# experiment + mouse_id are the join key. sex: male/female. strain: free text (e.g. WT, ATRX-KO)."
-2025-07-17,54,male,
-2025-07-17,55,male,
-2025-07-17,56,male,
-2025-07-17,57,male,
-2025-07-17,58,female,
-2025-07-17,59,female,
+"# background_image: filename in 2_background_images/, e.g. BKGDimage-20260101_arenaB.png. Leave blank to use the experiment-wide value."
+"# img_extent: same 4-number format as experiment_list.csv (left,right,bottom,top in cm). Leave blank to use the experiment-wide value."
+"# Per-mouse target coordinates: scope target rules to specific mice via the 'mice' column in targets/<DATE>_targets.csv."
+2025-07-17,54,male,,,
+2025-07-17,55,male,,,
+2025-07-17,56,male,,,
+2025-07-17,57,male,,,
+2025-07-17,58,female,,,
+2025-07-17,59,female,,,

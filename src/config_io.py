@@ -192,16 +192,7 @@ def load_experiment(experiment: str, path: Optional[Path] = None) -> ExperimentC
         )
     r = match[0]
 
-    extent_raw = (r.get("img_extent") or "").strip()
-    try:
-        extent = np.array([float(x) for x in extent_raw.split(",")], dtype=np.float64)
-    except ValueError:
-        raise ConfigError(f"{experiment}: img_extent '{extent_raw}' is not 4 comma-separated numbers.")
-    if extent.shape != (4,):
-        raise ConfigError(
-            f"{experiment}: img_extent must have exactly 4 numbers (left,right,bottom,top); "
-            f"got {extent.size} from '{extent_raw}'."
-        )
+    extent = _parse_img_extent((r.get("img_extent") or "").strip(), experiment)
 
     sex = (r.get("mouse_sex") or "").strip().lower()
     if sex not in VALID_SEX:
@@ -285,8 +276,29 @@ def load_targets(experiment: str, path: Optional[Path] = None) -> list:
     return rules
 
 
+def _parse_img_extent(raw: str, ctx: str) -> np.ndarray:
+    """Parse a comma-separated 4-number img_extent string. Loud on malformed input."""
+    try:
+        arr = np.array([float(x) for x in raw.split(",")], dtype=np.float64)
+    except ValueError:
+        raise ConfigError(f"{ctx}: img_extent '{raw}' is not 4 comma-separated numbers.")
+    if arr.shape != (4,):
+        raise ConfigError(
+            f"{ctx}: img_extent must have exactly 4 numbers (left,right,bottom,top); "
+            f"got {arr.size} from '{raw}'."
+        )
+    return arr
+
+
 def load_mouse_map(path: Optional[Path] = None) -> dict:
-    """Load mouse_map.csv into {(experiment, mouse_id): {'sex','strain'}}."""
+    """Load mouse_map.csv into {(experiment, mouse_id): {'sex','strain','background_image','img_extent'}}.
+
+    ``background_image`` and ``img_extent`` are optional per-mouse arena overrides
+    (used when one experiment runs on physically different arenas, e.g. mice 1-4
+    on arena A, mice 5-8 on arena B). Blank means "use the experiment-wide value
+    from experiment_list.csv". ``img_extent`` parses the same 4-number CSV format
+    as the experiment row.
+    """
     path = Path(path or paths.MOUSE_MAP)
     out: dict = {}
     if not path.exists():
@@ -299,9 +311,13 @@ def load_mouse_map(path: Optional[Path] = None) -> dict:
                 continue
             if not exp or not mouse:
                 continue
+            extent_raw = (row.get("img_extent") or "").strip()
+            extent = _parse_img_extent(extent_raw, f"mouse_map.csv ({exp}/M{mouse})") if extent_raw else None
             out[(exp, mouse)] = {
                 "sex": (row.get("sex") or "").strip(),
                 "strain": (row.get("strain") or "").strip(),
+                "background_image": (row.get("background_image") or "").strip(),
+                "img_extent": extent,
             }
     return out
 
@@ -322,3 +338,22 @@ def resolve_mouse_sex_strain(cfg: ExperimentConfig, mouse: str, mouse_map: dict)
             f"override. Add a row giving its actual sex."
         )
     return sex, strain
+
+
+def resolve_mouse_arena(cfg: ExperimentConfig, mouse: str, mouse_map: dict):
+    """Per-mouse ``(background_image, img_extent)``: mouse_map overrides cfg defaults.
+
+    Blank/missing override -> cfg's experiment-wide values. The two override
+    fields are independent (you can override one without the other), but in
+    practice they travel together since changing arenas usually changes both
+    the screenshot and the camera calibration.
+    """
+    entry = mouse_map.get((cfg.experiment, str(mouse).strip()))
+    background = cfg.background_image
+    extent = cfg.img_extent
+    if entry:
+        if entry.get("background_image"):
+            background = entry["background_image"]
+        if entry.get("img_extent") is not None:
+            extent = entry["img_extent"]
+    return background, extent

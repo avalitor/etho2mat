@@ -15,7 +15,7 @@ from pathlib import Path
 
 import numpy as np
 
-from . import metrics
+from . import config_io, metrics
 from .config_io import is_no_reward_trial
 from .validate import warn
 
@@ -116,6 +116,84 @@ def trial_numbering_warnings(result) -> None:
 # Letters immediately followed by digits, with no whitespace separator.
 # Used to flag e.g. "Probe2"/"Habituation1" -- CHECKLIST recommends "Probe 2"/"Habituation 1".
 _LETTERS_THEN_DIGITS = re.compile(r"^[A-Za-z]+\d+$")
+
+
+def arena_target_consistency_warnings(result, margin: float = 1.05) -> None:
+    """Warn when a target's (x,y) lies outside the arena assigned to its mouse.
+
+    Multi-arena experiments (mouse_map.csv overrides background_image per cohort)
+    are easy to mis-configure: assign a mouse to arena B but leave its target rows
+    pointing at arena-A coordinates. The arenas are physically shifted, so an
+    arena-A target used by an arena-B mouse typically lands well outside arena B's
+    circle -- geometrically detectable.
+
+    This warning never blocks the run -- the user has the final say (e.g. for an
+    unusual setup where the target is intentionally outside the dish, or arenas
+    are still being calibrated). A small ``margin * r`` slack is allowed so that
+    hand-measured targets near the rim don't trigger false positives.
+
+    Single-arena experiments are skipped: in that case there is no second arena
+    to swap with, and any "target outside arena" condition would already be
+    surfaced by the existing reach report (every reward trial would miss).
+    """
+    # Per-mouse arena: every record for a given mouse carries the same arena
+    # (driven by mouse_map.csv), so first-seen wins.
+    mouse_arena: dict = {}             # mouse_number -> (arena_circle, bkgd_img)
+    mouse_trials: dict = {}            # mouse_number -> list[(entrance, trial)]
+    for rec in result.records:
+        if rec.mouse_number not in mouse_arena:
+            mouse_arena[rec.mouse_number] = (rec.arena_circle, rec.bkgd_img)
+        mouse_trials.setdefault(rec.mouse_number, []).append((rec.entrance, rec.trial))
+
+    arena_by_bg: dict = {rec.bkgd_img: rec.arena_circle for rec in result.records}
+    if len(arena_by_bg) <= 1:
+        return                          # single-arena -> nothing to cross-check here
+
+    rules = result.rules
+    seen_pairs = set()                  # (rule_source_row, mouse) -> already warned
+    for rule in rules:
+        for mouse, trials in mouse_trials.items():
+            # Does this rule fire for at least one of this mouse's trials?
+            fires = False
+            for entrance, trial in trials:
+                fired = config_io._matching_rules(rules, rule.role, entrance, trial, mouse)
+                if any(f is rule for f in fired):
+                    fires = True
+                    break
+            if not fires:
+                continue
+            (cx, cy, r), bg = mouse_arena[mouse]
+            d = float(np.hypot(rule.x - cx, rule.y - cy))
+            if d <= r * margin:
+                continue                # inside the mouse's arena -> OK
+            key = (rule.source_row, mouse)
+            if key in seen_pairs:
+                continue
+            seen_pairs.add(key)
+            # Outside this mouse's arena. Check whether the coords land inside
+            # ANOTHER arena's circle -- that's strong evidence of a copy-paste swap.
+            swap_with = None
+            for other_bg, (ocx, ocy, orad) in arena_by_bg.items():
+                if other_bg == bg:
+                    continue
+                if float(np.hypot(rule.x - ocx, rule.y - ocy)) <= orad * margin:
+                    swap_with = other_bg
+                    break
+            base = (
+                f"targets row {rule.source_row} ({rule.role}, ({rule.x:.2f}, {rule.y:.2f})) "
+                f"applies to mouse {mouse} (arena '{bg}', center ({cx:.2f}, {cy:.2f}), r={r:.2f}) "
+                f"but the target is {d:.2f} cm from that arena's center"
+            )
+            if swap_with:
+                warn(
+                    f"ARENA/TARGET MISMATCH: {base}. Coords land inside arena '{swap_with}' "
+                    f"-- likely a copy-paste swap. Confirm the mice column and coords."
+                )
+            else:
+                warn(
+                    f"ARENA/TARGET MISMATCH: {base}. Coords are outside every detected "
+                    f"arena -- check the target row and the mouse's mouse_map.csv assignment."
+                )
 
 
 def trial_naming_warnings(result) -> None:
