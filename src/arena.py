@@ -33,6 +33,15 @@ _MASK_SENSITIVITY = 60.0
 _HOUGH = dict(dp=1, minDist=20, param1=80, minRadius=50, maxRadius=200)
 _HOLE_AREA_MAX = 30          # contour area (downscaled px) below which it's a hole
 
+# Fallback HoughCircles pass used ONLY when the production pass returns nothing.
+# An arena whose downscaled radius lands just over 200 (we have a real case at
+# r=201.7) is invisible to production but cleanly resolved here. The widening
+# is deliberately conservative -- pushing past ~300 starts to introduce spurious
+# secondary candidates on some existing fixtures, which would trip the n!=1
+# refusal. Existing fixtures all succeed at production maxRadius=200, so they
+# never reach this fallback and the golden output stays byte-exact.
+_HOUGH_FALLBACK = dict(dp=1, minDist=20, param1=80, minRadius=50, maxRadius=300)
+
 # Diagnostic-only: a relaxed HoughCircles pass shown in the failure figure so
 # the user can see what the detector would have locked onto with a lower
 # accumulator threshold and a wider radius window. Never feeds the result.
@@ -79,6 +88,12 @@ def _detect_circle(gray, image_name: str):
     import cv2
 
     circles = cv2.HoughCircles(gray, method=cv2.HOUGH_GRADIENT, param2=_MASK_SENSITIVITY, **_HOUGH)
+    if circles is None:
+        # Try the wider fallback before giving up -- catches arenas whose radius
+        # lands just over the production maxRadius cap.
+        circles = cv2.HoughCircles(
+            gray, method=cv2.HOUGH_GRADIENT, param2=_MASK_SENSITIVITY, **_HOUGH_FALLBACK
+        )
     if circles is None:
         return None, 0, (
             f"No arena circle detected in {image_name}. The edge may be too faint -- "
