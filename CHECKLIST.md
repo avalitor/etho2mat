@@ -11,8 +11,8 @@ will not block the pipeline — some it will warn about — and the final say is
 
 - [ ] Experiment is named as its start date, `YYYY-MM-DD`. No other experiment should share the same date. 
 - [ ] In Ethovision, check each trial's nose point tracks correctly and sits on the target before export & trials follow the naming convention (see Trial Naming and Numbering). 
-- [ ] In Ethovision, get the target coordinates per entrance (See Target Coordinates).
-- [ ] In Ethovision, get the background extent coordinates (see Image Extent).
+- [ ] In Ethovision, get the target coordinates per entrance (See [Target Coordinates](#target-coordinates).
+- [ ] In Ethovision, get the background extent coordinates (see [Image Extent](#image-extent).
 - [ ] Export Excel files for every trial from Ethovision, placed in the `1_raw/` folder.
 - [ ] Take an arena snapshot from a trial video and place it in the `2_background_images/` folder.
 - [ ] Know the sex of every mouse, and strain/condition if relevant (each listed per mouse if they vary within the experiment).
@@ -39,8 +39,7 @@ These are recommendations, not rules. If you deviate, it is on you to remember w
 
 Recommended:
 - Capitalize named trials: `Probe`, not `probe`.
-- Number repeats with a space: `Habituation 1`, `Habituation 2`, not `habit1`. A single one is
-  just `Habituation`.
+- Number repeats with a space: `Habituation 1`, `Habituation 2`, not `habit1`. A single one is just `Habituation`.
 - Do not abbreviate: `Habituation`, not `Habit`.
 
 The tool warns when names deviate, but does not stop you. So `habit1`, `habit2` is allowed — your
@@ -50,7 +49,7 @@ Essential:
 - **Number trials sequentially, including around named trials: `1, 2, 3, Probe, 4, 5`.** A skipped number usually means a trial is mis-numbered or missing, so the tool flags it prominently — you can still proceed if the gap is intentional.
 - **No two trials for the same mouse can share a name** — they would write to the same output file and overwrite each other. *(enforced)*
 
-### Target coordinates
+### Target Coordinates
 
 - Record each target by its entrance: `NW entrance -> reward at (x, y)`. Get coordinates by mousing over the target in the Ethovision Arena Setup tab.
 - Anchor on the entrance, not the mouse. If a mouse's target changes, still give the per-entrance coordinates.
