@@ -11,7 +11,8 @@ will not block the pipeline — some it will warn about — and the final say is
 
 - [ ] Experiment is named as its start date, `YYYY-MM-DD`. No other experiment should share the same date. 
 - [ ] In Ethovision, check each trial's nose point tracks correctly and sits on the target before export & trials follow the naming convention (see Trial Naming and Numbering). 
-- [ ] In Ethovision, get the target coordinates per entrance. 
+- [ ] In Ethovision, get the target coordinates per entrance (See Target Coordinates).
+- [ ] In Ethovision, get the background extent coordinates (see Image Extent).
 - [ ] Export Excel files for every trial from Ethovision, placed in the `1_raw/` folder.
 - [ ] Take an arena snapshot from a trial video and place it in the `2_background_images/` folder.
 - [ ] Know the sex of every mouse, and strain/condition if relevant (each listed per mouse if they vary within the experiment).
@@ -55,6 +56,11 @@ Essential:
 - Anchor on the entrance, not the mouse. If a mouse's target changes, still give the per-entrance coordinates.
 - No target at `(0, 0)`; it is treated as missing. *(enforced)*
 
+### Image Extent
+- In Ethovision, open the arena tab and get the coordinates of the edges of the image in this order: -x-axis, +x-axis, -y-axis, +y-axis
+- Hover your mouse over the very left edge and right edge to get the -x and +x coordinates. Hover your mouse over the very bottom and top edges to get the -y and +y coordinates.
+- Example: `-139.27, 139.13, -78.26, 78.69`
+
 ### Entrance codes
 
 - Recommended set: `NW`, `SW`, `SE`, `NE`. The labels must match what you recorded in Ethovision. *(enforced: must match)*
@@ -62,7 +68,7 @@ Essential:
 
 
 ## 2. Arena screenshot
-- Open a trial video in VLC, scroll to when the arena is clear, and take a snapshot using `Video --> Take Snapshot`. The image should be saved in your Pictures folder. Rename the image with the experiment name and place it in the `2_background_images/` folder.
+- Open a trial video in VLC, scroll to when the arena is clear, and take a snapshot using `Video --> Take Snapshot`. The image should be saved in your Pictures folder. You can rename the image with the experiment name and any other reminders (e.g. `BKGD_2024-11-09_arenaA.png`) and place it in the `2_background_images/` folder.
 - Pick a video near the **middle** of the experiment, preferably the Probe; the arena can drift slightly as the experiment runs if you accidentally bumped it. 
 - Arena clear, fully in frame, evenly lit. Nothing else in the arena — no wires, mice, or objects; these can be counted as extra holes.
 - All holes empty and visible; a food-filled hole can be missed.
@@ -88,3 +94,5 @@ Free text in `experiment_list.csv`. Include:
 CSVs open in Excel, Numbers, or LibreOffice, which may automatically reformat entries (dates, leading
 zeros, scientific notation). After editing, check the `experiment` column still reads as text
 like `2025-01-21` and that mouse IDs are intact, and save as `.csv`, not `.xlsx`.
+
+**On macOS Numbers:** Numbers does not save as CSV by default — it saves a proprietary `.numbers` file the pipeline cannot read. After editing, use **File → Export To → CSV…** and overwrite the original `.csv`. Do NOT use File → Save.
