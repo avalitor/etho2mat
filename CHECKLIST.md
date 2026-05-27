@@ -10,9 +10,9 @@ will not block the pipeline — some it will warn about — and the final say is
 ## Checklist
 
 - [ ] Experiment is named as its start date, `YYYY-MM-DD`. No other experiment should share the same date. 
-- [ ] In Ethovision, check each trial's nose point tracks correctly and sits on the target before export & trials follow the naming convention (see Trial Naming and Numbering). 
-- [ ] In Ethovision, get the target coordinates per entrance (See [Target Coordinates](#target-coordinates).
-- [ ] In Ethovision, get the background extent coordinates (see [Image Extent](#image-extent).
+- [ ] In Ethovision, check each trial's nose point tracks correctly and sits on the target before export & trials follow the naming convention (see [Trial Naming and Numbering](#trial-naming-and-numbering)). 
+- [ ] In Ethovision, get the target coordinates per entrance (See [Target Coordinates](#target-coordinates)).
+- [ ] In Ethovision, get the background extent coordinates (see [Image Extent](#image-extent)).
 - [ ] Export Excel files for every trial from Ethovision, placed in the `1_raw/` folder.
 - [ ] Take an arena snapshot from a trial video and place it in the `2_background_images/` folder.
 - [ ] Know the sex of every mouse, and strain/condition if relevant (each listed per mouse if they vary within the experiment).

@@ -19,6 +19,7 @@ A *conda environment* is a private folder of Python libraries this tool needs; c
 3. **Navigate to this project folder.** Use the `cd` command. 
 > [!TIP] 
 > instead of typing the path, type `cd ` (with a trailing space) and then drag the project folder into the terminal window — the full path is pasted automatically. Then press Enter. 
+
 Example: (your path will differ)
      ```
      cd /Users/yourname/Documents/etho2mat
